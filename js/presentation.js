@@ -681,3 +681,4 @@ window.presentationApp = new PresentationController();
 // progress bar
 // keyboard nav
 // touch events
+// fullscreen
