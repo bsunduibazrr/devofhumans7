@@ -492,3 +492,4 @@ window.PresentationScene3D = PresentationScene3D;
 // mesh color
 // ambient light
 // renderer fix
+// shadow fix
