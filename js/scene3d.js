@@ -493,3 +493,4 @@ window.PresentationScene3D = PresentationScene3D;
 // ambient light
 // renderer fix
 // shadow fix
+// fps counter
