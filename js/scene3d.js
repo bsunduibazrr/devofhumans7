@@ -486,3 +486,4 @@ class PresentationScene3D {
 
 // Make globally accessible
 window.PresentationScene3D = PresentationScene3D;
+// scene update
