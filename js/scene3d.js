@@ -489,3 +489,4 @@ window.PresentationScene3D = PresentationScene3D;
 // scene update
 // lighting fix
 // camera pos
+// mesh color
