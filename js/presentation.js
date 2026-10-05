@@ -682,3 +682,4 @@ window.presentationApp = new PresentationController();
 // keyboard nav
 // touch events
 // fullscreen
+// final cleanup
