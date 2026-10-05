@@ -680,3 +680,4 @@ window.presentationApp = new PresentationController();
 // nav arrows
 // progress bar
 // keyboard nav
+// touch events
