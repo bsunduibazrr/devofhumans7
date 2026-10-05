@@ -488,3 +488,4 @@ class PresentationScene3D {
 window.PresentationScene3D = PresentationScene3D;
 // scene update
 // lighting fix
+// camera pos
