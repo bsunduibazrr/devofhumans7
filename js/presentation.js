@@ -676,3 +676,4 @@ class PresentationController {
 // Instantiate upon script execution
 window.presentationApp = new PresentationController();
 // pres v1
+// slide logic
