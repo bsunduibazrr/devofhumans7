@@ -23,56 +23,58 @@ class PresentationScene3D {
     this.interactionTimeout = null;
 
     // 25 Cinematic slide transforms for the 3D Kinetic Monument
+    // Rule: Odd slides (1,3,5...) -> Sculpture RIGHT (x > 0)
+    //       Even slides (2,4,6...) -> Sculpture LEFT (x < 0)
     this.slideTransforms = [
-      // 01: Hero Center
-      { camPos: { x: 0, y: 0, z: 5.6 }, sculpturePos: { x: 0, y: 0, z: 0 }, sculptureRot: { x: 0.15, y: 0, z: 0 }, expansion: 1.0, wireframeMode: false, speed: 0.004 },
-      // 02: Why This Topic (Angle Right)
-      { camPos: { x: 1.5, y: 0.3, z: 5.0 }, sculpturePos: { x: 1.1, y: 0.1, z: 0 }, sculptureRot: { x: 0.35, y: -0.5, z: 0.1 }, expansion: 1.15, wireframeMode: false, speed: 0.005 },
-      // 03: Team of 6 (Angle Left)
-      { camPos: { x: -1.6, y: -0.2, z: 4.8 }, sculpturePos: { x: -1.2, y: 0, z: 0 }, sculptureRot: { x: -0.2, y: 0.6, z: -0.1 }, expansion: 1.25, wireframeMode: false, speed: 0.005 },
-      // 04: What is Human Development? (High Overhead)
-      { camPos: { x: 1.6, y: 1.1, z: 4.7 }, sculpturePos: { x: 1.2, y: 0.3, z: 0 }, sculptureRot: { x: 0.6, y: -0.8, z: 0.2 }, expansion: 1.3, wireframeMode: false, speed: 0.006 },
-      // 05: Sex vs Gender (Duality Separation)
-      { camPos: { x: -1.7, y: 0.4, z: 4.5 }, sculpturePos: { x: -1.3, y: 0.1, z: 0 }, sculptureRot: { x: 0.4, y: 1.1, z: -0.3 }, expansion: 1.5, wireframeMode: false, speed: 0.006 },
-      // 06: SDG 4 & 5 (Interlocking Horizon)
-      { camPos: { x: 1.4, y: -0.5, z: 4.6 }, sculpturePos: { x: 1.1, y: -0.2, z: 0 }, sculptureRot: { x: -0.4, y: -0.7, z: 0.3 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
-      // 07: Global 122M Girls (Isometric Overhead)
-      { camPos: { x: -1.9, y: 1.4, z: 4.4 }, sculpturePos: { x: -1.3, y: 0.2, z: 0 }, sculptureRot: { x: 0.85, y: 0.9, z: -0.35 }, expansion: 1.35, wireframeMode: false, speed: 0.007 },
-      // 08: Economic ROI (Core Focal Zoom)
-      { camPos: { x: 1.5, y: 0.2, z: 4.2 }, sculpturePos: { x: 1.1, y: 0.0, z: 0 }, sculptureRot: { x: 0.2, y: 1.6, z: 0.1 }, expansion: 1.1, wireframeMode: false, speed: 0.007 },
-      // 09: Global Boy Crisis (Tilted Orbit)
-      { camPos: { x: -1.5, y: -0.7, z: 4.5 }, sculpturePos: { x: -1.1, y: -0.2, z: 0 }, sculptureRot: { x: -0.5, y: -1.2, z: 0.4 }, expansion: 1.25, wireframeMode: false, speed: 0.006 },
-      // 10: Mongolia Reverse Gap (Dramatic Asymmetry)
-      { camPos: { x: 1.8, y: -0.8, z: 4.3 }, sculpturePos: { x: 1.2, y: -0.2, z: 0 }, sculptureRot: { x: -0.7, y: 1.5, z: 0.6 }, expansion: 1.4, wireframeMode: false, speed: 0.007 },
-      // 11: Rural Boys Drop Out (Low Angle Up)
-      { camPos: { x: -1.6, y: -1.1, z: 4.4 }, sculpturePos: { x: -1.2, y: -0.3, z: 0 }, sculptureRot: { x: -0.8, y: 0.7, z: -0.2 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
-      // 12: Glass Ceiling Paradox (High View Looking Down)
-      { camPos: { x: 1.4, y: 1.5, z: 4.2 }, sculpturePos: { x: 1.0, y: 0.4, z: 0 }, sculptureRot: { x: 0.9, y: -0.9, z: 0.3 }, expansion: 1.35, wireframeMode: false, speed: 0.006 },
-      // 13: Wage Gap 18.5% (Depth Offset)
-      { camPos: { x: -1.5, y: 0.3, z: 4.5 }, sculpturePos: { x: -1.1, y: 0.1, z: 0 }, sculptureRot: { x: 0.3, y: 2.1, z: -0.2 }, expansion: 1.45, wireframeMode: false, speed: 0.006 },
-      // 14: CS Student Perspective (Matrix Wireframe Entrance)
-      { camPos: { x: 1.6, y: 0.4, z: 4.3 }, sculpturePos: { x: 1.2, y: 0.1, z: 0 }, sculptureRot: { x: 1.1, y: -1.1, z: 0.7 }, expansion: 1.5, wireframeMode: true, speed: 0.009 },
-      // 15: AI Algorithmic Bias (Rapid Cybernetic Rotation)
-      { camPos: { x: -1.6, y: -0.4, z: 4.0 }, sculpturePos: { x: -1.2, y: -0.1, z: 0 }, sculptureRot: { x: 1.4, y: 1.8, z: 0.5 }, expansion: 1.6, wireframeMode: true, speed: 0.011 },
-      // 16: MUST Campus & Women in Tech (Warm Focus)
-      { camPos: { x: 1.4, y: 0.1, z: 4.2 }, sculpturePos: { x: 1.0, y: 0.0, z: 0 }, sculptureRot: { x: 0.3, y: -1.4, z: 0.2 }, expansion: 1.2, wireframeMode: false, speed: 0.006 },
-      // 17: History & Ada Lovelace (Astrolabe Dial Alignment)
-      { camPos: { x: -1.4, y: 0.8, z: 4.4 }, sculpturePos: { x: -1.0, y: 0.2, z: 0 }, sculptureRot: { x: 0.6, y: 0.5, z: 0.8 }, expansion: 1.3, wireframeMode: false, speed: 0.005 },
-      // 18: Myth 1 Math vs Language (Split Angle)
-      { camPos: { x: 1.5, y: -0.4, z: 4.3 }, sculpturePos: { x: 1.1, y: -0.1, z: 0 }, sculptureRot: { x: -0.4, y: 1.2, z: -0.3 }, expansion: 1.35, wireframeMode: false, speed: 0.006 },
-      // 19: Myth 2 Toxic Male Burden (Heavy Tilt)
-      { camPos: { x: -1.5, y: -1.0, z: 4.4 }, sculpturePos: { x: -1.1, y: -0.3, z: 0 }, sculptureRot: { x: -0.7, y: -0.8, z: 0.4 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
-      // 20: Myth 3 Not Anti-Men (Harmonizing)
-      { camPos: { x: 1.3, y: 0.5, z: 4.6 }, sculpturePos: { x: 1.0, y: 0.1, z: 0 }, sculptureRot: { x: 0.2, y: 2.4, z: -0.1 }, expansion: 1.15, wireframeMode: false, speed: 0.005 },
-      // 21: Solution 1 Rural Boys (Ascending Ring)
-      { camPos: { x: -1.4, y: 0.3, z: 4.3 }, sculpturePos: { x: -1.0, y: 0.1, z: 0 }, sculptureRot: { x: 0.5, y: -1.3, z: 0.2 }, expansion: 1.25, wireframeMode: false, speed: 0.006 },
-      // 22: Solution 2 Girls in STEM (Crystalline Core Illumination)
-      { camPos: { x: 1.5, y: -0.2, z: 4.2 }, sculpturePos: { x: 1.1, y: 0.0, z: 0 }, sculptureRot: { x: -0.2, y: 0.9, z: 0.5 }, expansion: 1.3, wireframeMode: false, speed: 0.007 },
-      // 23: Solution 3 Curriculum Revamp (Concentric Astrolabe)
-      { camPos: { x: -1.3, y: 0.8, z: 4.4 }, sculpturePos: { x: -1.0, y: 0.2, z: 0 }, sculptureRot: { x: 0.7, y: -0.5, z: -0.4 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
-      // 24: Epilogue: Two Wings of a Bird (Grand Soaring Symmetry)
-      { camPos: { x: 0, y: 1.3, z: 4.6 }, sculpturePos: { x: 0, y: 0.3, z: 0 }, sculptureRot: { x: 0.4, y: 3.14, z: 0 }, expansion: 1.1, wireframeMode: false, speed: 0.004 },
-      // 25: Gen-Z Finale / Celebration (Dynamic Jubilant Spin)
+      // 01 (Odd - Slide 1): Hero (Sculpture Right)
+      { camPos: { x: 1.5, y: 0.1, z: 5.4 }, sculpturePos: { x: 1.1, y: 0, z: 0 }, sculptureRot: { x: 0.15, y: 0.2, z: 0 }, expansion: 1.0, wireframeMode: false, speed: 0.004 },
+      // 02 (Even - Slide 2): Why This Topic (Sculpture Left)
+      { camPos: { x: -1.5, y: 0.3, z: 5.0 }, sculpturePos: { x: -1.1, y: 0.1, z: 0 }, sculptureRot: { x: 0.35, y: -0.5, z: 0.1 }, expansion: 1.15, wireframeMode: false, speed: 0.005 },
+      // 03 (Odd - Slide 3): Team of 6 (Sculpture Right)
+      { camPos: { x: 1.6, y: -0.2, z: 4.8 }, sculpturePos: { x: 1.2, y: 0, z: 0 }, sculptureRot: { x: -0.2, y: 0.6, z: -0.1 }, expansion: 1.25, wireframeMode: false, speed: 0.005 },
+      // 04 (Even - Slide 4): What is Human Development? (Sculpture Left)
+      { camPos: { x: -1.6, y: 0.4, z: 4.7 }, sculpturePos: { x: -1.2, y: 0.2, z: 0 }, sculptureRot: { x: 0.6, y: -0.8, z: 0.2 }, expansion: 1.3, wireframeMode: false, speed: 0.006 },
+      // 05 (Odd - Slide 5): Sex vs Gender (Sculpture Right)
+      { camPos: { x: 1.7, y: 0.4, z: 4.5 }, sculpturePos: { x: 1.3, y: 0.1, z: 0 }, sculptureRot: { x: 0.4, y: 1.1, z: -0.3 }, expansion: 1.5, wireframeMode: false, speed: 0.006 },
+      // 06 (Even - Slide 6): SDG 4 & 5 (Sculpture Left)
+      { camPos: { x: -1.4, y: -0.5, z: 4.6 }, sculpturePos: { x: -1.1, y: -0.2, z: 0 }, sculptureRot: { x: -0.4, y: -0.7, z: 0.3 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
+      // 07 (Odd - Slide 7): Global 122M Girls (Sculpture Right)
+      { camPos: { x: 1.9, y: 0.8, z: 4.4 }, sculpturePos: { x: 1.3, y: 0.2, z: 0 }, sculptureRot: { x: 0.85, y: 0.9, z: -0.35 }, expansion: 1.35, wireframeMode: false, speed: 0.007 },
+      // 08 (Even - Slide 8): Economic ROI (Sculpture Left)
+      { camPos: { x: -1.5, y: 0.2, z: 4.2 }, sculpturePos: { x: -1.1, y: 0.0, z: 0 }, sculptureRot: { x: 0.2, y: 1.6, z: 0.1 }, expansion: 1.1, wireframeMode: false, speed: 0.007 },
+      // 09 (Odd - Slide 9): Global Boy Crisis (Sculpture Right)
+      { camPos: { x: 1.5, y: -0.4, z: 4.5 }, sculpturePos: { x: 1.1, y: -0.2, z: 0 }, sculptureRot: { x: -0.5, y: -1.2, z: 0.4 }, expansion: 1.25, wireframeMode: false, speed: 0.006 },
+      // 10 (Even - Slide 10): Mongolia Reverse Gap (Sculpture Left)
+      { camPos: { x: -1.8, y: -0.5, z: 4.3 }, sculpturePos: { x: -1.2, y: -0.2, z: 0 }, sculptureRot: { x: -0.7, y: 1.5, z: 0.6 }, expansion: 1.4, wireframeMode: false, speed: 0.007 },
+      // 11 (Odd - Slide 11): Rural Boys Drop Out (Sculpture Right)
+      { camPos: { x: 1.6, y: -0.6, z: 4.4 }, sculpturePos: { x: 1.2, y: -0.3, z: 0 }, sculptureRot: { x: -0.8, y: 0.7, z: -0.2 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
+      // 12 (Even - Slide 12): Glass Ceiling Paradox (Sculpture Left)
+      { camPos: { x: -1.4, y: 0.8, z: 4.2 }, sculpturePos: { x: -1.0, y: 0.3, z: 0 }, sculptureRot: { x: 0.9, y: -0.9, z: 0.3 }, expansion: 1.35, wireframeMode: false, speed: 0.006 },
+      // 13 (Odd - Slide 13): Wage Gap 18.5% (Sculpture Right)
+      { camPos: { x: 1.5, y: 0.3, z: 4.5 }, sculpturePos: { x: 1.1, y: 0.1, z: 0 }, sculptureRot: { x: 0.3, y: 2.1, z: -0.2 }, expansion: 1.45, wireframeMode: false, speed: 0.006 },
+      // 14 (Even - Slide 14): CS Student Perspective (Sculpture Left Wireframe)
+      { camPos: { x: -1.6, y: 0.4, z: 4.3 }, sculpturePos: { x: -1.2, y: 0.1, z: 0 }, sculptureRot: { x: 1.1, y: -1.1, z: 0.7 }, expansion: 1.5, wireframeMode: true, speed: 0.009 },
+      // 15 (Odd - Slide 15): AI Algorithmic Bias (Sculpture Right Wireframe)
+      { camPos: { x: 1.6, y: -0.4, z: 4.0 }, sculpturePos: { x: 1.2, y: -0.1, z: 0 }, sculptureRot: { x: 1.4, y: 1.8, z: 0.5 }, expansion: 1.6, wireframeMode: true, speed: 0.011 },
+      // 16 (Even - Slide 16): MUST Campus & Women in Tech (Sculpture Left)
+      { camPos: { x: -1.4, y: 0.1, z: 4.2 }, sculpturePos: { x: -1.0, y: 0.0, z: 0 }, sculptureRot: { x: 0.3, y: -1.4, z: 0.2 }, expansion: 1.2, wireframeMode: false, speed: 0.006 },
+      // 17 (Odd - Slide 17): History & Ada Lovelace (Sculpture Right)
+      { camPos: { x: 1.4, y: 0.6, z: 4.4 }, sculpturePos: { x: 1.0, y: 0.2, z: 0 }, sculptureRot: { x: 0.6, y: 0.5, z: 0.8 }, expansion: 1.3, wireframeMode: false, speed: 0.005 },
+      // 18 (Even - Slide 18): Myth 1 Math vs Language (Sculpture Left)
+      { camPos: { x: -1.5, y: -0.4, z: 4.3 }, sculpturePos: { x: -1.1, y: -0.1, z: 0 }, sculptureRot: { x: -0.4, y: 1.2, z: -0.3 }, expansion: 1.35, wireframeMode: false, speed: 0.006 },
+      // 19 (Odd - Slide 19): Myth 2 Toxic Male Burden (Sculpture Right)
+      { camPos: { x: 1.5, y: -0.5, z: 4.4 }, sculpturePos: { x: 1.1, y: -0.2, z: 0 }, sculptureRot: { x: -0.7, y: -0.8, z: 0.4 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
+      // 20 (Even - Slide 20): Myth 3 Not Anti-Men (Sculpture Left)
+      { camPos: { x: -1.3, y: 0.5, z: 4.6 }, sculpturePos: { x: -1.0, y: 0.1, z: 0 }, sculptureRot: { x: 0.2, y: 2.4, z: -0.1 }, expansion: 1.15, wireframeMode: false, speed: 0.005 },
+      // 21 (Odd - Slide 21): Solution 1 Rural Boys (Sculpture Right)
+      { camPos: { x: 1.4, y: 0.3, z: 4.3 }, sculpturePos: { x: 1.0, y: 0.1, z: 0 }, sculptureRot: { x: 0.5, y: -1.3, z: 0.2 }, expansion: 1.25, wireframeMode: false, speed: 0.006 },
+      // 22 (Even - Slide 22): Solution 2 Girls in STEM (Sculpture Left)
+      { camPos: { x: -1.5, y: -0.2, z: 4.2 }, sculpturePos: { x: -1.1, y: 0.0, z: 0 }, sculptureRot: { x: -0.2, y: 0.9, z: 0.5 }, expansion: 1.3, wireframeMode: false, speed: 0.007 },
+      // 23 (Odd - Slide 23): Solution 3 Curriculum Revamp (Sculpture Right)
+      { camPos: { x: 1.3, y: 0.6, z: 4.4 }, sculpturePos: { x: 1.0, y: 0.2, z: 0 }, sculptureRot: { x: 0.7, y: -0.5, z: -0.4 }, expansion: 1.2, wireframeMode: false, speed: 0.005 },
+      // 24 (Even - Slide 24): Epilogue: Two Wings of a Bird (Sculpture Left)
+      { camPos: { x: -1.4, y: 0.5, z: 4.6 }, sculpturePos: { x: -1.0, y: 0.2, z: 0 }, sculptureRot: { x: 0.4, y: 3.14, z: 0 }, expansion: 1.1, wireframeMode: false, speed: 0.004 },
+      // 25 (Odd - Slide 25): Gen-Z Finale (Sculpture Center-Right)
       { camPos: { x: 0, y: -0.5, z: 4.8 }, sculpturePos: { x: 0, y: -0.1, z: 0 }, sculptureRot: { x: -0.2, y: 4.5, z: 0.2 }, expansion: 1.45, wireframeMode: false, speed: 0.012 }
     ];
 

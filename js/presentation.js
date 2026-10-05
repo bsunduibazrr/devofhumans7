@@ -223,6 +223,7 @@ class PresentationController {
 
     this.isTransitioning = true;
     const prevIndex = this.currentIndex;
+    const direction = index > prevIndex ? 'next' : 'prev'; // scrolling down = 'next'
     this.currentIndex = index;
 
     // Trigger audio feedback
@@ -231,19 +232,49 @@ class PresentationController {
       if (index === 0 || index === this.totalSlides - 1 || Math.abs(index - prevIndex) > 2) {
         this.playSubWhooshSound();
       }
+      // Spawn particle burst
+      this.spawnTransitionParticles(direction);
     }
 
-    // 1. Update Slide DOM states
+    // 1. Update Slide DOM states with direction-aware cinematic classes
     this.slideElements.forEach((slide, idx) => {
-      slide.classList.remove('active', 'prev', 'next');
+      // Remove all state classes
+      slide.classList.remove(
+        'active', 'prev', 'next',
+        'slide-exit-up', 'slide-exit-down',
+        'slide-enter-up', 'slide-enter-down'
+      );
+
       if (idx === index) {
-        slide.classList.add('active');
-        // Restart CSS staggered animations
-        slide.querySelectorAll('.stagger-reveal').forEach((el) => {
+        // --- ENTERING SLIDE ---
+        if (!immediate) {
+          // Briefly set the "enter-from" state (no transition), then animate to active
+          const enterClass = direction === 'next' ? 'slide-enter-up' : 'slide-enter-down';
+          slide.style.transition = 'none';
+          slide.classList.add(enterClass);
+          slide.offsetHeight; // force reflow
+          slide.style.transition = '';
+          // Now remove enter class and add active — CSS transition kicks in
+          requestAnimationFrame(() => {
+            slide.classList.remove(enterClass);
+            slide.classList.add('active');
+          });
+        } else {
+          slide.classList.add('active');
+        }
+
+        // Restart CSS staggered animations by forcing reflow
+        const staggerEls = slide.querySelectorAll('[class*="stagger-"]');
+        staggerEls.forEach((el) => {
           el.style.animation = 'none';
           el.offsetHeight; // trigger reflow
           el.style.animation = '';
         });
+
+      } else if (idx === prevIndex && !immediate) {
+        // --- EXITING SLIDE ---
+        const exitClass = direction === 'next' ? 'slide-exit-up' : 'slide-exit-down';
+        slide.classList.add(exitClass);
       } else if (idx < index) {
         slide.classList.add('prev');
       } else {
@@ -271,7 +302,77 @@ class PresentationController {
     // Release transition lock after animation completes
     setTimeout(() => {
       this.isTransitioning = false;
-    }, immediate ? 50 : 700);
+      // Clean up exit classes on previous slide
+      if (prevIndex !== index) {
+        const prevSlide = this.slideElements[prevIndex];
+        if (prevSlide) {
+          prevSlide.classList.remove('slide-exit-up', 'slide-exit-down');
+          if (prevIndex < index) {
+            prevSlide.classList.add('prev');
+          } else {
+            prevSlide.classList.add('next');
+          }
+        }
+      }
+    }, immediate ? 50 : 900);
+  }
+
+  /**
+   * Spawn tiny accent-colored particles that burst across the screen during transitions.
+   * Uses a lightweight canvas overlay for max performance.
+   */
+  spawnTransitionParticles(direction) {
+    let canvas = document.querySelector('.slide-transition-particles');
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.className = 'slide-transition-particles';
+      document.body.appendChild(canvas);
+    }
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const PARTICLE_COUNT = 28;
+    const particles = [];
+    const accentColors = ['#dc2626', '#ef4444', '#f87171', '#1a1a1a', '#6b7280'];
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: direction === 'next' ? canvas.height + 10 : -10,
+        vx: (Math.random() - 0.5) * 4,
+        vy: direction === 'next' ? -(Math.random() * 6 + 3) : (Math.random() * 6 + 3),
+        radius: Math.random() * 3 + 1,
+        color: accentColors[Math.floor(Math.random() * accentColors.length)],
+        alpha: 1,
+        decay: Math.random() * 0.015 + 0.008,
+      });
+    }
+
+    let frame = 0;
+    const maxFrames = 80;
+    const animate = () => {
+      if (frame++ > maxFrames) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+      }
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy *= 0.98;
+        p.alpha -= p.decay;
+        if (p.alpha <= 0) continue;
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
   }
 
   nextSlide() {

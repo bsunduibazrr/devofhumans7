@@ -115,8 +115,16 @@ body {
 #presentation-progress-bar {
   height: 100%;
   width: 4%;
-  background-color: var(--accent);
-  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  background: linear-gradient(90deg, var(--accent), #ef4444, var(--accent));
+  background-size: 200% 100%;
+  transition: width 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 8px rgba(220, 38, 38, 0.4), 0 0 20px rgba(220, 38, 38, 0.15);
+  animation: progressGlow 3s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* ==========================================================================
@@ -233,11 +241,14 @@ body {
   z-index: 10;
 }
 
+/* ======== CINEMATIC SLIDE VIEWPORT (3D Perspective Container) ======== */
 #slides-viewport {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .slide-section {
@@ -255,9 +266,23 @@ body {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter, clip-path;
   transition:
-    opacity 0.5s ease,
-    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  filter: blur(0px);
+  clip-path: inset(0 0 0 0);
+}
+
+/* -- Transition Particle Overlay Canvas -- */
+.slide-transition-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  pointer-events: none;
 }
 
 /* 25 Slide Fallback Positions */
@@ -337,20 +362,124 @@ body {
   top: 2400vh;
 }
 
+/* ======== ACTIVE SLIDE — Full cinematic entrance ======== */
 .slide-section.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0) translateZ(0) scale(1) rotateX(0deg);
+  filter: blur(0px) brightness(1);
+  clip-path: inset(0 0 0 0);
 }
 
-/* White panel behind left-side text content — keeps text readable over the 3D canvas */
-.slide-section::before {
+/* ======== DIRECTION-AWARE EXIT/ENTER STATES ======== */
+/* Exiting upward (going to next slide) */
+.slide-section.slide-exit-up {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(-8vh) translateZ(-80px) scale(0.92) rotateX(3deg);
+  filter: blur(6px) brightness(0.7);
+  clip-path: inset(0 0 100% 0);
+}
+
+/* Exiting downward (going to prev slide) */
+.slide-section.slide-exit-down {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(8vh) translateZ(-80px) scale(0.92) rotateX(-3deg);
+  filter: blur(6px) brightness(0.7);
+  clip-path: inset(100% 0 0 0);
+}
+
+/* Entering from below (coming from next) */
+.slide-section.slide-enter-up {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(12vh) translateZ(-120px) scale(0.88) rotateX(-4deg);
+  filter: blur(12px) brightness(1.2);
+  clip-path: inset(100% 0 0 0);
+}
+
+/* Entering from above (coming from prev) */
+.slide-section.slide-enter-down {
+  opacity: 0;
+  visibility: visible;
+  transform: translateY(-12vh) translateZ(-120px) scale(0.88) rotateX(4deg);
+  filter: blur(12px) brightness(1.2);
+  clip-path: inset(0 0 100% 0);
+}
+
+/* ======== PREV / NEXT idle states (non-visible slides) ======== */
+.slide-section.prev {
+  opacity: 0;
+  transform: translateY(-6vh) translateZ(-60px) scale(0.94);
+  filter: blur(4px);
+  clip-path: inset(0 0 100% 0);
+}
+
+.slide-section.next {
+  opacity: 0;
+  transform: translateY(6vh) translateZ(-60px) scale(0.94);
+  filter: blur(4px);
+  clip-path: inset(100% 0 0 0);
+}
+
+/* ======== Red accent line sweep on active slide ======== */
+.slide-section.active::after {
   content: '';
   position: absolute;
-  inset: 0;
-  right: 48%;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: accentLineSweep 1.2s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  z-index: 30;
+}
+
+@keyframes accentLineSweep {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* White panel behind text content — keeps text readable over the 3D canvas */
+/* Odd slides (1,3,5...) -> Panel on LEFT (3D on RIGHT) */
+.slide-section:nth-child(odd)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 46%;
   background: var(--bg-paper);
   z-index: 0;
   pointer-events: none;
+}
+
+/* Even slides (2,4,6...) -> Panel on RIGHT (3D on LEFT) */
+.slide-section:nth-child(even)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 46%;
+  right: 0;
+  background: var(--bg-paper);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Slide 25 (Finale) -> Full paper overlay */
+#slide-24::before {
+  left: 0 !important;
+  right: 0 !important;
+  background: rgba(250, 250, 250, 0.85) !important;
 }
 
 .slide-content-wrapper {
@@ -366,7 +495,7 @@ body {
   justify-content: center;
 }
 
-/* 2-Column Split — text always on the LEFT where it's clean and readable */
+/* 2-Column Split — Odd slides: text left (1fr 0.8fr). Even slides (reverse): 3D left, text right (0.8fr 1fr) */
 .editorial-grid-2col {
   display: grid;
   grid-template-columns: 1fr 0.8fr;
@@ -374,9 +503,10 @@ body {
   align-items: center;
 }
 
-/* Remove reverse — always keep text on left for readability */
 .editorial-grid-2col.reverse {
-  grid-template-columns: 1fr 0.8fr;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 2rem;
+  align-items: center;
 }
 
 .editorial-grid-2col.equal {
@@ -424,31 +554,114 @@ body {
   font-weight: 400;
 }
 
-/* Staggered Element Reveal Animations */
+/* ======== Enhanced Cinematic Stagger Reveals ======== */
 .slide-section.active .stagger-1 {
-  animation: slideUpReveal 0.6s 0.05s both cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideUpReveal 0.7s 0.08s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 .slide-section.active .stagger-2 {
-  animation: slideUpReveal 0.65s 0.12s both cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideUpRevealTitle 0.8s 0.18s both cubic-bezier(0.16, 1, 0.3, 1);
 }
 .slide-section.active .stagger-3 {
-  animation: slideUpReveal 0.65s 0.2s both cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeSlideIn 0.75s 0.32s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 .slide-section.active .stagger-4 {
-  animation: slideUpReveal 0.65s 0.28s both cubic-bezier(0.16, 1, 0.3, 1);
+  animation: scaleUpReveal 0.8s 0.42s both cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .slide-section.active .stagger-5 {
-  animation: slideUpReveal 0.65s 0.36s both cubic-bezier(0.16, 1, 0.3, 1);
+  animation: fadeSlideIn 0.75s 0.55s both cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Primary slide-up for kickers and small elements */
 @keyframes slideUpReveal {
   from {
     opacity: 0;
-    transform: translateY(20px) scale(0.98);
+    transform: translateY(30px) scale(0.96);
+    filter: blur(4px);
   }
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Bold title entrance with slight rotation */
+@keyframes slideUpRevealTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92) rotate(-0.5deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* Gentle fade-slide for subtitles and paragraphs */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) translateX(-8px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+    filter: blur(0px);
+  }
+}
+
+/* Scale-up with elastic overshoot for cards and data grids */
+@keyframes scaleUpReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) translateY(20px);
+    filter: blur(6px);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-2px);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Shimmer highlight that sweeps across newly revealed content */
+.slide-section.active .slide-content-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(220, 38, 38, 0.04) 45%,
+    rgba(220, 38, 38, 0.08) 50%,
+    rgba(220, 38, 38, 0.04) 55%,
+    transparent 60%
+  );
+  animation: shimmerSweep 1.6s 0.3s both ease-out;
+  pointer-events: none;
+  z-index: 25;
+}
+
+@keyframes shimmerSweep {
+  from {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
   }
 }
 
@@ -1020,6 +1233,13 @@ body {
 .dock-indicator-dot.active {
   background: var(--accent);
   width: 26px;
+  box-shadow: 0 0 6px rgba(220, 38, 38, 0.5);
+  animation: dotActivePulse 2s ease-in-out infinite;
+}
+
+@keyframes dotActivePulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(220, 38, 38, 0.5); }
+  50% { box-shadow: 0 0 12px rgba(220, 38, 38, 0.8); }
 }
 
 .dock-right-controls {
@@ -1246,6 +1466,14 @@ body.mode-scroll .slide-section {
   opacity: 1 !important;
   visibility: visible !important;
   border-bottom: 1px solid var(--border-subtle);
+  transform: none !important;
+  filter: none !important;
+  clip-path: none !important;
+  will-change: auto !important;
+}
+body.mode-scroll .slide-section::after,
+body.mode-scroll .slide-section .slide-content-wrapper::after {
+  display: none !important;
 }
 
 /* ==========================================================================
