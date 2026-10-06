@@ -36,7 +36,9 @@
 
   /* Typography */
   --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
   --transition-smooth: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
@@ -118,13 +120,20 @@ body {
   background: linear-gradient(90deg, var(--accent), #ef4444, var(--accent));
   background-size: 200% 100%;
   transition: width 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 0 8px rgba(220, 38, 38, 0.4), 0 0 20px rgba(220, 38, 38, 0.15);
+  box-shadow:
+    0 0 8px rgba(220, 38, 38, 0.4),
+    0 0 20px rgba(220, 38, 38, 0.15);
   animation: progressGlow 3s ease-in-out infinite;
 }
 
 @keyframes progressGlow {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ==========================================================================
@@ -426,7 +435,7 @@ body {
 
 /* ======== Red accent line sweep on active slide ======== */
 .slide-section.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -451,7 +460,7 @@ body {
 /* White panel behind text content — keeps text readable over the 3D canvas */
 /* Odd slides (1,3,5...) -> Panel on LEFT (3D on RIGHT) */
 .slide-section:nth-child(odd)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -464,7 +473,7 @@ body {
 
 /* Even slides (2,4,6...) -> Panel on RIGHT (3D on LEFT) */
 .slide-section:nth-child(even)::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -638,7 +647,7 @@ body {
 
 /* Shimmer highlight that sweeps across newly revealed content */
 .slide-section.active .slide-content-wrapper::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -694,7 +703,9 @@ body {
 .pillar-card:hover,
 .tech-aspect-card:hover {
   transform: translateY(-4px) scale(1.015);
-  box-shadow: 0 12px 28px rgba(220, 38, 38, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 12px 28px rgba(220, 38, 38, 0.08),
+    0 4px 10px rgba(0, 0, 0, 0.04);
   border-color: var(--accent-border);
 }
 
@@ -739,7 +750,9 @@ body {
   border-left: 3px solid var(--accent);
   padding: 0.9rem 1.1rem;
   border-radius: 6px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .stat-hero-box:hover {
@@ -1238,8 +1251,13 @@ body {
 }
 
 @keyframes dotActivePulse {
-  0%, 100% { box-shadow: 0 0 6px rgba(220, 38, 38, 0.5); }
-  50% { box-shadow: 0 0 12px rgba(220, 38, 38, 0.8); }
+  0%,
+  100% {
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(220, 38, 38, 0.8);
+  }
 }
 
 .dock-right-controls {
@@ -1602,3 +1620,160 @@ body.mode-scroll .slide-section .slide-content-wrapper::after {
 /* button style */
 /* card style */
 /* grid layout */
+/* ==========================================================================
+   layout-fix.css  — style.css-ийн ДАРАА залгана
+   Сондгой слайд: текст ЗҮҮН, 3D БАРУУН
+   Тэгш слайд:    3D ЗҮҮН,  текст БАРУУН
+   ========================================================================== */
+
+/* ---- 1. 3D canvas: нэг уртаар, transform-оор зүүн/баруун шилжинэ ---- */
+#webgl-canvas-container {
+  left: 0;
+  right: auto;
+  width: 50vw;
+  transform: translateX(50vw); /* сондгой слайд -> баруун тал */
+  transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Идэвхтэй слайд тэгш байвал -> зүүн тал */
+body:has(.slide-section.active:nth-child(even)) #webgl-canvas-container {
+  transform: translateX(0);
+}
+
+/* Нарийн тор (grid) мөн 3D-ийн талд байна */
+.paper-hairline-grid {
+  left: 50%;
+  width: 50%;
+}
+body:has(.slide-section.active:nth-child(even)) .paper-hairline-grid {
+  left: 0;
+}
+
+/* ---- 2. Цагаан самбар: яг хагас болгоно ---- */
+.slide-section:nth-child(odd)::before {
+  left: 0;
+  right: 50%;
+}
+.slide-section:nth-child(even)::before {
+  left: 50%;
+  right: 0;
+}
+
+/* ---- 3. Гол grid: 50% / 50% (3D тал хоосон, текст эсрэг талд) ---- */
+.slide-section {
+  padding: 4.2rem 0 4.5rem 0;
+}
+
+.slide-content-wrapper {
+  max-width: none;
+}
+
+.slide-content-wrapper > .editorial-grid-2col,
+.slide-content-wrapper > .editorial-grid-2col.reverse {
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+/* Сондгой: текст зүүн */
+.slide-content-wrapper > .editorial-grid-2col:not(.reverse) > .editorial-left {
+  padding: 0 3rem 0 3.5rem;
+}
+/* Тэгш: текст баруун */
+.slide-content-wrapper > .editorial-grid-2col.reverse > .editorial-right {
+  padding: 0 3.5rem 0 3rem;
+}
+
+/* Хаалтын слайд (25) төвд */
+#slide-24 .slide-content-wrapper {
+  padding: 0 3.5rem;
+}
+
+/* ---- 4. Иконууд ---- */
+.has-chip {
+  position: relative;
+}
+.has-chip.editorial-card,
+.has-chip.metric-data-card,
+.has-chip.pillar-card,
+.has-chip.myth-card,
+.has-chip.stat-hero-box,
+.has-chip.comparison-item,
+.has-chip.tech-aspect-card {
+  padding-right: 3.6rem;
+}
+.has-chip.tech-aspect-card {
+  padding-right: 3.6rem;
+}
+
+.icon-chip {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--accent-light);
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  transition:
+    transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.2s ease,
+    color 0.2s ease;
+}
+.icon-chip svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.has-chip:hover .icon-chip {
+  background: var(--accent);
+  color: #fff;
+  transform: rotate(-8deg) scale(1.1);
+}
+
+/* Kicker дахь жижиг икон */
+.kicker-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 0.45rem;
+  vertical-align: -2px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---- 5. Жижиг дэлгэц ---- */
+@media (max-width: 1024px) {
+  #webgl-canvas-container,
+  body:has(.slide-section.active:nth-child(even)) #webgl-canvas-container {
+    width: 100vw;
+    transform: none;
+    opacity: 0.35;
+  }
+  .slide-section:nth-child(odd)::before,
+  .slide-section:nth-child(even)::before {
+    left: 0;
+    right: 0;
+    opacity: 0.92;
+  }
+  .slide-content-wrapper > .editorial-grid-2col,
+  .slide-content-wrapper > .editorial-grid-2col.reverse {
+    grid-template-columns: 1fr;
+  }
+  .slide-content-wrapper > .editorial-grid-2col > .editorial-left,
+  .slide-content-wrapper > .editorial-grid-2col > .editorial-right {
+    padding: 0 1.5rem !important;
+  }
+  .slide-content-wrapper > .editorial-grid-2col > [style*="min-height"] {
+    display: none;
+  }
+}
