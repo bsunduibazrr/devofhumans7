@@ -397,11 +397,11 @@ class PresentationScene3D {
       this.currentTransform.camPos.z
     );
 
-    // Look at sculpture center with subtle parallax tilt
+    // Look at center X but track sculpture Y and Z with subtle parallax
     this.camera.lookAt(
-      targetTransform.sculpturePos.x,
-      targetTransform.sculpturePos.y,
-      targetTransform.sculpturePos.z
+      0,
+      this.sculptureGroup.position.y,
+      this.sculptureGroup.position.z
     );
 
     // 3. User Drag Momentum & Damping
