@@ -1,554 +1,1234 @@
 <!doctype html>
 <html lang="mn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SEM-7</title>
-    <meta name="description" content="sem-7" />
-
-    <link
-      rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2309090b'/><path d='M30 50 A20 20 0 0 1 70 50 A20 20 0 0 0 30 50' fill='%23ffffff'/></svg>"
-    />
-
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body class="mode-presentation">
-    <div class="paper-grain-overlay" aria-hidden="true"></div>
-    <div class="paper-hairline-grid" aria-hidden="true"></div>
-
-    <div class="top-progress-container">
-      <div id="presentation-progress-bar"></div>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   SEM-7
+  </title>
+  <meta content="sem-7" name="description"/>
+  <link href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;circle cx='50' cy='50' r='46' fill='%2309090b'/&gt;&lt;path d='M30 50 A20 20 0 0 1 70 50 A20 20 0 0 0 30 50' fill='%23ffffff'/&gt;&lt;/svg&gt;" rel="icon"/>
+  <link href="css/style.css" rel="stylesheet"/>
+ </head>
+ <body class="mode-presentation">
+  <div aria-hidden="true" class="paper-grain-overlay">
+  </div>
+  <div aria-hidden="true" class="paper-hairline-grid">
+  </div>
+  <div class="top-progress-container">
+   <div id="presentation-progress-bar">
+   </div>
+  </div>
+  <div id="webgl-canvas-container" title="3D Биет: Хулганаар чирж 360° эргүүлж харах боломжтой">
+  </div>
+  <div aria-hidden="true" id="custom-cursor-dot">
+  </div>
+  <div aria-hidden="true" id="custom-cursor-ring">
+  </div>
+  <header class="site-header-hud">
+   <div class="hud-group">
+    <div class="brand-badge">
+     <span class="brand-dot">
+     </span>
     </div>
-
-    <div
-      id="webgl-canvas-container"
-      title="3D Биет: Хулганаар чирж 360° эргүүлж харах боломжтой"
-    ></div>
-
-    <div id="custom-cursor-dot" aria-hidden="true"></div>
-    <div id="custom-cursor-ring" aria-hidden="true"></div>
-
-    <header class="site-header-hud">
-      <div class="hud-group">
-        <div class="brand-badge">
-          <span class="brand-dot"></span>
+    <div class="hud-center-tag">
+     <span>
+      ХҮНИЙ ХӨГЖИЛ
+     </span>
+     <span style="opacity: 0.35">
+      |
+     </span>
+     <span>
+      СЕМИНАР 07
+     </span>
+    </div>
+   </div>
+  </header>
+  <main id="presentation-main-stage">
+   <div id="slides-viewport">
+    <section class="slide-section active" data-slide-index="0" id="slide-0" style="--slide-index: 0">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <h1 class="slide-display-title stagger-2">
+         ЖЕНДЭРИЙН ТЭГШ БАЙДАЛ БА БОЛОВСРОЛ
+        </h1>
+        <p class="slide-display-subtitle stagger-3">
+         Охид, хөвгүүд хүйсээсээ үл хамааран өөрийн сонирхол, чадварт тохирсон боловсрол эзэмшиж, хөгжих тэгш боломжтой байх ёстой.
+        </p>
+        <div class="stats-hero-row stagger-5">
+         <div class="stat-hero-box">
+          <div class="stat-hero-val">
+           122M
+          </div>
+          <div class="stat-hero-label">
+           Дэлхий дээр сургуульд явж чадахгүй байгаа охид
+          </div>
+          <div class="stat-hero-source">
+           UNESCO
+          </div>
+         </div>
+         <div class="stat-hero-box">
+          <div class="stat-hero-val">
+           62.4%
+          </div>
+          <div class="stat-hero-label">
+           Монголын дээд сургуулийн оюутнуудын эмэгтэйчүүдийн хувь
+          </div>
+          <div class="stat-hero-source">
+           ҮСХ, 2023
+          </div>
+         </div>
+         <div class="stat-hero-box">
+          <div class="stat-hero-val">
+           28.2%
+          </div>
+          <div class="stat-hero-label">
+           STEM салбарт ажиллаж буй эмэгтэйчүүд
+          </div>
+          <div class="stat-hero-source">
+           WEF, 2024
+          </div>
+         </div>
         </div>
-        <div class="hud-center-tag">
-          <span>ХҮНИЙ ХӨГЖИЛ</span>
-          <span style="opacity: 0.35">|</span>
-          <span>СЕМИНАР 07</span>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="1" id="slide-1" style="--slide-index: 1">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         СЭДЭВ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Яагаад энэ сэдэв чухал вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Жендэрийн тэгш байдал нь зөвхөн бодлогын асуудал биш. Бидний сургууль, гэр бүл, мэргэжил сонголт, ажлын орчинд өдөр бүр нөлөөлдөг.
+        </p>
+        <div class="concept-cards-grid stagger-4">
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           01
+          </span>
+          <h3 class="card-title">
+           Анги танхимд
+          </h3>
+          <p class="card-desc">
+           Хүүхэд дуртай хичээл, секцээ “энэ охидынх”, “энэ хөвгүүдийнх” гэж сонссоор байвал өөрийн чадвараа туршиж үзэхээс өмнө хязгаарлагдаж эхэлдэг.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           02
+          </span>
+          <h3 class="card-title">
+           Хөдөө орон нутагт
+          </h3>
+          <p class="card-desc">
+           Мал маллах, гэрийн ажилд туслах шаардлага гарахад хөвгүүдийг сургуулиас түрүүлж гаргах хандлага одоо ч яригддаг.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           03
+          </span>
+          <h3 class="card-title">
+           Ажлын орчинд
+          </h3>
+          <p class="card-desc">
+           Эмэгтэйчүүд боловсрол, чадвартай байсан ч зарим тохиолдолд удирдах түвшинд хүрэх боломж нь хязгаарлагддаг. Энэ ялгаа юунаас үүсдэгийг авч үзнэ.
+          </p>
+         </div>
         </div>
+       </div>
       </div>
-    </header>
-
-    <main id="presentation-main-stage">
-      <div id="slides-viewport">
-        <section class="slide-section active" style="--slide-index: 0" data-slide-index="0" id="slide-0">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <h1 class="slide-display-title stagger-2">ЖЕНДЭРИЙН ТЭГШ БАЙДАЛ БА БОЛОВСРОЛ</h1>
-                <p class="slide-display-subtitle stagger-3">
-                  Охид, хөвгүүд хүйсээсээ үл хамааран өөрийн сонирхол, чадварт тохирсон боловсрол эзэмшиж, хөгжих тэгш боломжтой байх ёстой.
-                </p>
-                <div class="stats-hero-row stagger-5">
-                  <div class="stat-hero-box">
-                    <div class="stat-hero-val">122M</div>
-                    <div class="stat-hero-label">Дэлхий дээр сургуульд явж чадахгүй байгаа охид</div>
-                    <div class="stat-hero-source">UNESCO</div>
-                  </div>
-                  <div class="stat-hero-box">
-                    <div class="stat-hero-val">62.4%</div>
-                    <div class="stat-hero-label">Монголын дээд сургуулийн оюутнуудын эмэгтэйчүүдийн хувь</div>
-                    <div class="stat-hero-source">ҮСХ, 2023</div>
-                  </div>
-                  <div class="stat-hero-box">
-                    <div class="stat-hero-val">28.2%</div>
-                    <div class="stat-hero-label">STEM салбарт ажиллаж буй эмэгтэйчүүд</div>
-                    <div class="stat-hero-source">WEF, 2024</div>
-                  </div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="2" id="slide-2" style="--slide-index: 2">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         БАГ 06
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Багийн гишүүд
+        </h2>
+        <div class="team-roster-grid stagger-4">
+         <div class="team-card">
+          <div class="team-card-header">
+           <span class="team-member-num">
+            01
+           </span>
+           <span class="team-member-code">
+            B261910006
+           </span>
           </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 1" data-slide-index="1" id="slide-1">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">СЭДЭВ</span>
-                <h2 class="slide-display-title stagger-2">Яагаад энэ сэдэв чухал вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">
-                  Жендэрийн тэгш байдал нь зөвхөн бодлогын асуудал биш. Бидний сургууль, гэр бүл, мэргэжил сонголт, ажлын орчинд өдөр бүр нөлөөлдөг.
-                </p>
-                <div class="concept-cards-grid stagger-4">
-                  <div class="editorial-card">
-                    <span class="card-num-badge">01</span>
-                    <h3 class="card-title">Анги танхимд</h3>
-                    <p class="card-desc">Хүүхэд дуртай хичээл, секцээ “энэ охидынх”, “энэ хөвгүүдийнх” гэж сонссоор байвал өөрийн чадвараа туршиж үзэхээс өмнө хязгаарлагдаж эхэлдэг.</p>
-                  </div>
-                  <div class="editorial-card">
-                    <span class="card-num-badge">02</span>
-                    <h3 class="card-title">Хөдөө орон нутагт</h3>
-                    <p class="card-desc">Мал маллах, гэрийн ажилд туслах шаардлага гарахад хөвгүүдийг сургуулиас түрүүлж гаргах хандлага одоо ч яригддаг.</p>
-                  </div>
-                  <div class="editorial-card">
-                    <span class="card-num-badge">03</span>
-                    <h3 class="card-title">Ажлын орчинд</h3>
-                    <p class="card-desc">Эмэгтэйчүүд боловсрол, чадвартай байсан ч зарим тохиолдолд удирдах түвшинд хүрэх боломж нь хязгаарлагддаг. Энэ ялгаа юунаас үүсдэгийг авч үзнэ.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h3 class="team-member-name">
+           Б. Сундуйбазар
+          </h3>
+         </div>
+         <div class="team-card">
+          <div class="team-card-header">
+           <span class="team-member-num">
+            02
+           </span>
+           <span class="team-member-code">
+            B261890073
+           </span>
           </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 2" data-slide-index="2" id="slide-2">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">БАГ 06</span>
-                <h2 class="slide-display-title stagger-2">Багийн гишүүд</h2>
-                <div class="team-roster-grid stagger-4">
-                  <div class="team-card"><div class="team-card-header"><span class="team-member-num">01</span><span class="team-member-code">B261910006</span></div><h3 class="team-member-name">Б. Сундуйбазар</h3></div>
-                  <div class="team-card"><div class="team-card-header"><span class="team-member-num">02</span><span class="team-member-code">B261890073</span></div><h3 class="team-member-name">Б. Маналсүрэн</h3></div>
-                  <div class="team-card"><div class="team-card-header"><span class="team-member-num">03</span><span class="team-member-code">B261890021</span></div><h3 class="team-member-name">Б. Сарнай</h3></div>
-                  <div class="team-card"><div class="team-card-header"><span class="team-member-num">04</span><span class="team-member-code">B251930036</span></div><h3 class="team-member-name">Б. Эрдэнэбаяр</h3></div>
-                  <div class="team-card"><div class="team-card-header"><span class="team-member-num">05</span><span class="team-member-code">B262230089</span></div><h3 class="team-member-name">Т. Нямхүү</h3></div>
-                  <div class="team-card"><div class="team-card-header"><span class="team-member-num">06</span><span class="team-member-code">B210920030</span></div><h3 class="team-member-name">Д. Цэнгэл</h3></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
+          <h3 class="team-member-name">
+           Б. Маналсүрэн
+          </h3>
+         </div>
+         <div class="team-card">
+          <div class="team-card-header">
+           <span class="team-member-num">
+            03
+           </span>
+           <span class="team-member-code">
+            B261890021
+           </span>
           </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 3" data-slide-index="3" id="slide-3">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">АГУУЛГА</span>
-                <h2 class="slide-display-title stagger-2">Өнөөдөр юуны тухай ярих вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Жендэрийн тэгш байдал боловсрол, нийгэм, технологийн салбарт хэрхэн илэрч байгааг авч үзнэ.</p>
-                <div class="concept-cards-grid stagger-4">
-                  <div class="editorial-card"><span class="card-num-badge">01</span><h3 class="card-title">Үндсэн ойлголт</h3><p class="card-desc">Хүний хөгжил, хүйс ба жендэрийн ялгаа, НҮБ-ын Тогтвортой хөгжлийн зорилтууд.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">02</span><h3 class="card-title">Дэлхийн нөхцөл байдал</h3><p class="card-desc">Охидын боловсролын ач холбогдол болон хөгжингүй орнуудад гарч буй шинэ сорилтууд.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">03</span><h3 class="card-title">Монголын нөхцөл байдал</h3><p class="card-desc">Дээд боловсрол, хөдөөгийн хөвгүүдийн асуудал, удирдах түвшин болон цалингийн зөрүү.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">04</span><h3 class="card-title">Технологийн салбар</h3><p class="card-desc">Компьютерийн шинжлэх ухаан, хиймэл оюун ухаан, манай сургууль болон Ада Лавлейсийн жишээ.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">05</span><h3 class="card-title">Хэвшмэл ойлголтууд</h3><p class="card-desc">Жендэртэй холбоотой түгээмэл гурван хэвшмэл ойлголт ба бодит байдал.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">06</span><h3 class="card-title">Гарц ба дүгнэлт</h3><p class="card-desc">Асуудлыг шийдвэрлэх боломжит гурван гарц болон гол дүгнэлт.</p></div>
-                </div>
-              </div>
-            </div>
+          <h3 class="team-member-name">
+           Б. Сарнай
+          </h3>
+         </div>
+         <div class="team-card">
+          <div class="team-card-header">
+           <span class="team-member-num">
+            04
+           </span>
+           <span class="team-member-code">
+            B251930036
+           </span>
           </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 4" data-slide-index="4" id="slide-4">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">ОНОЛЫН ҮНДЭС</span>
-                <h2 class="slide-display-title stagger-2">Хүний хөгжил гэж юу вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Улсын орлого өсөх нь чухал. Гэхдээ хүмүүс сурч боловсрох, эрүүл амьдрах, өөрийн сонголтоо хийх боломжгүй бол зөвхөн эдийн засгийн өсөлт хангалтгүй.</p>
-                <div class="editorial-grid-2col equal stagger-4" style="gap: 1.25rem">
-                  <div class="editorial-card"><span class="card-num-badge">ӨМНӨХ ҮЗЭЛ</span><h3 class="card-title">Орлого, үйлдвэрлэлээр хэмжих</h3><p class="card-desc">Хөгжлийг ДНБ, үйлдвэрлэл, орлогын өсөлтөөр голчлон хэмждэг хандлага удаан хугацаанд давамгайлж ирсэн.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">ӨНӨӨГИЙН ҮЗЭЛ</span><h3 class="card-title">Хүний сонголт, боломж</h3><p class="card-desc">Амартиа Сений “чадамжийн” үзлээр хөгжил гэдэг нь хүн өөрийн хүссэн амьдралаа сонгох бодит боломжтой байхыг хэлнэ.</p></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
+          <h3 class="team-member-name">
+           Б. Эрдэнэбаяр
+          </h3>
+         </div>
+         <div class="team-card">
+          <div class="team-card-header">
+           <span class="team-member-num">
+            05
+           </span>
+           <span class="team-member-code">
+            B262230089
+           </span>
           </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 5" data-slide-index="5" id="slide-5">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ҮНДСЭН ОЙЛГОЛТ</span>
-                <h2 class="slide-display-title stagger-2">Хүйс ба жендэр хоёр өөр ойлголт</h2>
-                <p class="slide-display-subtitle stagger-3">Хүйс нь хүний биологийн онцлогтой холбоотой. Харин жендэр нь нийгэм, соёлын орчноос шалтгаалан “эрэгтэй, эмэгтэй хүн ийм байх ёстой” гэж бий болдог хүлээлт, үүрэгтэй холбоотой.</p>
-                <div class="editorial-grid-2col equal stagger-4" style="gap: 1.25rem">
-                  <div class="editorial-card"><span class="card-num-badge">БИОЛОГИ</span><h3 class="card-title">Хүйс (Sex)</h3><p class="card-desc">Бие махбодын бүтэц, нөхөн үржихүйн онцлог зэрэг биологийн шинж чанарыг хэлнэ.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">НИЙГЭМ</span><h3 class="card-title">Жендэр (Gender)</h3><p class="card-desc">Нийгэм, соёлын орчинд бий болсон үүрэг, хүлээлт, хандлагыг хэлнэ. Энэ нь цаг хугацаа, орчноос шалтгаалан өөрчлөгдөж болно.</p></div>
-                </div>
-              </div>
-            </div>
+          <h3 class="team-member-name">
+           Т. Нямхүү
+          </h3>
+         </div>
+         <div class="team-card">
+          <div class="team-card-header">
+           <span class="team-member-num">
+            06
+           </span>
+           <span class="team-member-code">
+            B210920030
+           </span>
           </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 6" data-slide-index="6" id="slide-6">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">НҮБ-ЫН ТОГТВОРТОЙ ХӨГЖЛИЙН ЗОРИЛТ</span>
-                <h2 class="slide-display-title stagger-2">Боловсрол ба жендэрийн тэгш байдал: ТХЗ-4, ТХЗ-5</h2>
-                <p class="slide-display-subtitle stagger-3">Чанартай боловсрол эзэмших боломжгүй бол хүн эрхээ мэдэх, мэргэжлээ сонгох, нийгэмдээ идэвхтэй оролцох боломжоо бүрэн ашиглаж чаддаггүй. Тиймээс ТХЗ-4 болон ТХЗ-5 нь хоорондоо нягт холбоотой.</p>
-                <div class="editorial-grid-2col equal stagger-4" style="gap: 1.25rem">
-                  <div class="editorial-card"><span class="card-num-badge">ТХЗ 04</span><h3 class="card-title">Чанартай боловсрол</h3><p class="card-desc">Хүн бүр чанартай боловсрол эзэмшиж, насан туршдаа суралцах тэгш боломжтой байх.</p></div>
-                  <div class="editorial-card"><span class="card-num-badge">ТХЗ 05</span><h3 class="card-title">Жендэрийн тэгш байдал</h3><p class="card-desc">Охид, эмэгтэйчүүдийн эрх, боломжийг нэмэгдүүлж, жендэрт суурилсан ялгаварлан гадуурхалтыг бууруулах.</p></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 7" data-slide-index="7" id="slide-7">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ДЭЛХИЙН БАЙДАЛ</span>
-                <h2 class="slide-display-title stagger-2">Дэлхий дээр 122 сая орчим охин сургуульд хамрагдаж чадахгүй байна</h2>
-                <p class="slide-display-subtitle stagger-3">UNESCO-гийн 2023 оны мэдээллээр дэлхий даяар сургуульд хамрагдаж чадахгүй байгаа охидын тоо өндөр хэвээр байна. Үүнд ядуурал, мөргөлдөөн, хүүхдийн гэрлэлт, алслагдсан байршил зэрэг хүчин зүйлс нөлөөлдөг.</p>
-                <div class="metrics-dashboard-grid stagger-4">
-                  <div class="metric-data-card"><div class="metric-big-val">122M</div><div class="metric-title">Сургуульд хамрагдаагүй охид</div><div class="metric-sub">Ядуурал, мөргөлдөөн, хүүхдийн гэрлэлт ихтэй бүс нутагт энэ асуудал илүү түгээмэл байна.</div></div>
-                  <div class="metric-data-card"><div class="metric-big-val">≈ 2/3</div><div class="metric-title">Бичиг үсэг мэдэхгүй насанд хүрэгчдийн дундах эмэгтэйчүүдийн эзлэх хувь</div><div class="metric-sub">UNESCO-гийн мэдээллээр бичиг үсэг мэдэхгүй насанд хүрэгчдийн ойролцоогоор 63 хувь нь эмэгтэйчүүд байна.</div></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 8" data-slide-index="8" id="slide-8">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">НИЙГЭМ, ЭДИЙН ЗАСГИЙН ҮР ӨГӨӨЖ</span>
-                <h2 class="slide-display-title stagger-2">Охидын боловсролд хийсэн хөрөнгө оруулалт ямар үр өгөөжтэй вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Охидын боловсрол нь зөвхөн тухайн хүний ирээдүйд бус, гэр бүл, хүүхэд болон нийгмийн хөгжилд ч эерэг нөлөө үзүүлдэг.</p>
-                <div class="metrics-dashboard-grid stagger-4">
-                  <div class="metric-data-card"><div class="metric-big-val">илүү</div><div class="metric-title">Хүүхдийн эрүүл өсөх боломж</div><div class="metric-sub">Эхийн боловсрол нэмэгдэхийн хэрээр хүүхдийн эрүүл мэнд, асаргаа болон сургуульд хамрагдах боломж сайжирдаг гэж олон улсын судалгаанд дурддаг.</div></div>
-                  <div class="metric-data-card"><div class="metric-big-val">+20%</div><div class="metric-title">Ирээдүйн орлого</div><div class="metric-sub">UNESCO-гийн мэдээллээр нэг жил нэмэлт боловсрол эзэмших нь охидын ирээдүйн орлогыг 20 хүртэл хувиар нэмэгдүүлэх боломжтой.</div></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 9" data-slide-index="9" id="slide-9">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ШИНЭ СОРИЛТ</span>
-                <h2 class="slide-display-title stagger-2">Зарим хөгжингүй оронд нөхцөл байдал өөрөөр харагдаж байна</h2>
-                <p class="slide-display-subtitle stagger-3">Олон оронд охидын боловсролын хүртээмж сайжирсан ч зарим хөгжингүй оронд хөвгүүдийн дээд боловсролд хамрагдах түвшин харьцангуй буурч байгаа нь шинэ сорилт болж байна.</p>
-                <div class="editorial-card stagger-4" style="margin-bottom: 1rem">
-                  <h3 class="card-title">OECD орнуудын жишээ</h3>
-                  <p class="card-desc">OECD-ийн орнуудад боловсролын тэгш байдлыг зөвхөн нэг талаас нь авч үзэх боломжгүй болсон. Охидын боломжийг дэмжихийн зэрэгцээ хөвгүүдийн боловсролын оролцоог нэмэгдүүлэх нөхцөлийг ч хамтад нь бүрдүүлэх нь чухал.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 10" data-slide-index="10" id="slide-10">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">МОНГОЛ УЛСЫН БАЙДАЛ</span>
-                <h2 class="slide-display-title stagger-2">Манай улсад дээд сургуульд эмэгтэйчүүд илүү олон суралцдаг</h2>
-                <p class="slide-display-subtitle stagger-3">ҮСХ-ны боловсролын статистикаас харахад их, дээд сургуульд суралцагчдын дунд эмэгтэйчүүдийн эзлэх хувь өндөр байна. Энэ нь манай орны боловсролын салбарын нэг онцлог дүр зураг юм.</p>
-                <div class="comparison-item stagger-4">
-                  <div class="comp-category">Монголын их дээд сургуулиуд<small>Бакалавр, магистрын оюутнууд</small></div>
-                  <div class="comp-metric-tag female"><span class="label">Эмэгтэй</span><span class="val">62.4%</span></div>
-                  <div class="comp-metric-tag"><span class="label">Эрэгтэй</span><span class="val">37.6%</span></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 11" data-slide-index="11" id="slide-11">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ХӨДӨӨГИЙН БОДИТ БАЙДАЛ</span>
-                <h2 class="slide-display-title stagger-2">Хөдөөгийн хөвгүүд яагаад сургуулиа орхидог вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Гол шалтгаануудын нэг нь хөвгүүд гэр бүлийн ажилд эрт оролцож, мал маллах эсвэл орлого олоход туслах ёстой гэсэн хүлээлттэй холбоотой.</p>
-                <div class="comparison-item stagger-4">
-                  <div class="comp-category">Сургуулиа орхисон хүүхдүүдийн хүйсийн харьцаа<small>Мал маллах, гэр бүлийн ажилд оролцох зэрэг шалтгаанаар</small></div>
-                  <div class="comp-metric-tag"><span class="label">Охид</span><span class="val">31.0%</span></div>
-                  <div class="comp-metric-tag female"><span class="label">Хөвгүүд</span><span class="val">69.0%</span></div>
-                </div>
-                <p class="slide-lead-p stagger-5" style="margin-top: 0.8rem">“Хүү хүн ажил хийж сурсан нь дээр” гэсэн ойлголт заримдаа зөвлөгөө мэт сонсогддог. Гэхдээ энэ нь сургуулиа орхих хэмжээнд хүрвэл хүүхдийн ирээдүйн сонголтыг хязгаарлаж болно.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 12" data-slide-index="12" id="slide-12">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">ШИЛЭН ТААЗ</span>
-                <h2 class="slide-display-title stagger-2">Сургуульд тэргүүлдэг ч удирдах түвшинд цөөн байдаг</h2>
-                <p class="slide-display-subtitle stagger-3">Дээд боловсролд эмэгтэйчүүдийн оролцоо өндөр байдаг ч улс төр, байгууллагын удирдлага зэрэг шийдвэр гаргах түвшинд эрэгтэйчүүдийн эзлэх хувь өндөр хэвээр байна.</p>
-                <div class="comparison-item stagger-4">
-                  <div class="comp-category">Улсын Их Хурал дахь төлөөлөл<small>2024 оны сонгуулийн дараах бүтэц</small></div>
-                  <div class="comp-metric-tag female"><span class="label">Эмэгтэй</span><span class="val">25.4%</span></div>
-                  <div class="comp-metric-tag"><span class="label">Эрэгтэй</span><span class="val">74.6%</span></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 13" data-slide-index="13" id="slide-13">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ЦАЛИНГИЙН ЗӨРҮҮ</span>
-                <h2 class="slide-display-title stagger-2">Ижил боловсролтой ч цалин ижил байдаггүй</h2>
-                <p class="slide-display-subtitle stagger-3">Боловсрол өндөр байсан ч хөдөлмөрийн зах зээл дээр ажил, салбар, албан тушаалын ялгаа цалинд нөлөөлсөөр байна.</p>
-                <div class="comparison-item stagger-4">
-                  <div class="comp-category">Дундаж цалингийн зөрүү<small>ҮСХ болон хөдөлмөрийн зах зээлийн тайлангууд</small></div>
-                  <div class="comp-metric-tag female"><span class="label">Эмэгтэй</span><span class="val">-18.5%</span></div>
-                  <div class="comp-metric-tag"><span class="label">Эрэгтэй</span><span class="val">Суурь 100%</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 14" data-slide-index="14" id="slide-14">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">МАНАЙ САЛБАР</span>
-                <h2 class="slide-display-title stagger-2">Программчлалын салбарт яагаад эмэгтэйчүүд цөөн байдаг вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Программ хангамж, өгөгдөл, хиймэл оюун ухаан нь хүний амьдралд улам их нөлөөлж байна. Иймээс технологийг бүтээж буй баг олон янзын туршлага, үзэл бодолтой байх нь чухал.</p>
-                <div class="tech-aspect-card stagger-4">
-                  <div class="tech-stat-badge">28.2%</div>
-                  <div class="tech-aspect-info"><h3 class="card-title">STEM салбар дахь эмэгтэйчүүд</h3><p class="card-desc">WEF-ийн 2024 оны тайланд STEM ажлын хүчний 28.2 хувийг эмэгтэйчүүд эзэлж байна гэж дурдсан. Энэ нь технологийн салбар дахь оролцоо одоогоор тэнцвэртэй биш байгааг харуулж байна.</p></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 15" data-slide-index="15" id="slide-15">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ТЕХНОЛОГИ БА ЖЕНДЭР</span>
-                <h2 class="slide-display-title stagger-2">Хиймэл оюун ухаанд ч хазайлт үүсч болно</h2>
-                <p class="slide-display-subtitle stagger-3">Хиймэл оюун ухаан өөрөө автоматаар шударга шийдвэр гаргадаггүй. Хэрэв сурсан өгөгдөл нь нэг талыг илүү их төлөөлсөн бол гаргах үр дүн нь мөн хазайлттай байх эрсдэлтэй.</p>
-                <div class="tech-aspect-card stagger-4">
-                  <div class="tech-stat-badge">BIAS</div>
-                  <div class="tech-aspect-info"><h3 class="card-title">Алгоритмын хазайлт</h3><p class="card-desc">Ажилд авах, зээл олгох, үнэлгээ хийх зэрэг үйл явцад алгоритм ашиглах нь нэмэгдэж байна. Тиймээс өгөгдөл, загвар болон гарсан үр дүн нь хүйс болон бусад бүлгийн хувьд шударга эсэхийг тогтмол шалгах шаардлагатай.</p></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 16" data-slide-index="16" id="slide-16">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">ШУТИС-МХТС</span>
-                <h2 class="slide-display-title stagger-2">Манай сургууль дахь охидын оролцоо</h2>
-                <p class="slide-display-subtitle stagger-3">Манай сургуульд охид программ хангамж, өгөгдөл, кибер аюулгүй байдал зэрэг чиглэлээр суралцаж байна. Тоо нь харьцангуй цөөн байсан ч оролцоо нь бодитой нэмэгдэж байна.</p>
-                <div class="editorial-card stagger-4"><h3 class="card-title">МХТС-ийн суралцагчид</h3><p class="card-desc">Охидын оролцоо нэмэгдэх нь зөвхөн тоо өсөж байна гэсэн үг биш. Багийн ажил, асуудал шийдэх арга барил, хэрэглэгчийг ойлгох өнцгийг илүү өргөн болгоход чухал нөлөөтэй.</p></div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 17" data-slide-index="17" id="slide-17">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ТҮҮХЭН ЖИШЭЭ</span>
-                <h2 class="slide-display-title stagger-2">Анхны компьютерийн алгоритмыг эмэгтэй хүн бичсэн</h2>
-                <p class="slide-display-subtitle stagger-3">Ада Лавлейс 1843 онд Чарльз Бэббижийн “Аналитик машин”-д зориулсан тэмдэглэлдээ тооцооллын дараалал бичсэн. Үүнийг программчлалын түүхэн дэх анхны алгоритмуудын нэг гэж үздэг.</p>
-                <div class="editorial-card stagger-4"><h3 class="card-title">Тооцооллоос илүү зүйл</h3><p class="card-desc">Тэр уг машин зөвхөн тоо бодохоос гадна тэмдэгт болон бусад төрлийн мэдээлэл боловсруулах боломжтой гэж төсөөлж байсан. Энэ нь технологийн хөгжилд эмэгтэйчүүд эхнээсээ чухал хувь нэмэр оруулж ирснийг харуулдаг.</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 18" data-slide-index="18" id="slide-18">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">ХЭВШМЭЛ ОЙЛГОЛТ № 1</span>
-                <h2 class="slide-display-title stagger-2">“Хөвгүүд математикт, охид хэлний хичээлд илүү сайн байдаг уу?”</h2>
-                <p class="slide-display-subtitle stagger-3">Хүүхдийн чадварыг зөвхөн хүйсээр нь тодорхойлох боломжгүй. Сонирхол, дадлага, багшийн дэмжлэг болон гэр бүлийн хандлага нь илүү их нөлөөлдөг.</p>
-                <div class="myth-card stagger-4">
-                  <div class="myth-header"><span>Хүйсээс шалтгаалаад математик, логик сэтгэлгээний чадвар өөр байдаг уу?</span><span class="myth-badge">ТАШАА</span></div>
-                  <div class="myth-fact-content"><span class="fact-badge">БОДИТ БАЙДАЛ</span><p style="margin-top: 0.35rem">Нэг хүүхэд математикт, нөгөө нь хэл, урлаг эсвэл спортод илүү сонирхолтой байж болно. Гол нь хүүхдийн сонголтыг хүйсээр нь урьдчилан хязгаарлахгүй байх хэрэгтэй.</p></div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 19" data-slide-index="19" id="slide-19">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">ХЭВШМЭЛ ОЙЛГОЛТ № 2</span>
-                <h2 class="slide-display-title stagger-2">“Эр хүн уйлдаггүй” гэдэг ойлголт зөв үү?</h2>
-                <p class="slide-display-subtitle stagger-3">Сэтгэл хөдлөлөө илэрхийлэхийг сул дорой байдал гэж ойлговол хөвгүүд асуудлаа дотроо хадгалж, тусламж хүсэхээс санаа зовох тохиолдол гарч болно.</p>
-                <div class="editorial-card stagger-4"><h3 class="card-title">Дотроо дарсан сэтгэл</h3><p class="card-desc">Хүн бүр баярлах, гомдох, айх, тусламж хүсэх үе байдаг. Үүнийг “эр хүн”, “эм хүн” гэж ялгах нь харилцаа болон өөрийгөө ойлгох чадварт сөргөөр нөлөөлж болно.</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 20" data-slide-index="20" id="slide-20">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">ХЭВШМЭЛ ОЙЛГОЛТ № 3</span>
-                <h2 class="slide-display-title stagger-2">Жендэрийн тэгш байдал гэдэг нь эрэгтэйчүүдийн боломжийг хязгаарлах тухай биш</h2>
-                <p class="slide-display-subtitle stagger-3">Тэгш байдал гэдэг нь нэг талын эрх, боломжийг нөгөө талд шилжүүлэх гэсэн үг биш. Харин хүн бүр хүйсээсээ үл хамааран тэгш боломжтой байх тухай ойлголт юм.</p>
-                <div class="editorial-card stagger-4"><h3 class="card-title">Хүн бүрийн сонголтыг хүндлэх</h3><p class="card-desc">Эрэгтэй, эмэгтэй хэн ч өөрийн сонирхол, чадварт тохирсон мэргэжлээ сонгож, суралцаж, нийгэмдээ хувь нэмрээ оруулах эрхтэй.</p></div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 21" data-slide-index="21" id="slide-21">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">САНАЛ БОЛГОЖ БУЙ ГАРЦ 01</span>
-                <h2 class="slide-display-title stagger-2">Хөдөөгийн хөвгүүдийн боловсролыг хэрхэн дэмжих вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Малчин өрхийн хүүхдүүд гэр бүлийн ажилд оролцдог бодит нөхцөлийг харгалзан, сургуулиа таслахгүй үргэлжлүүлэн суралцах боломжийг бүрдүүлэх хэрэгтэй.</p>
-                <div class="pillar-card stagger-4"><div class="pillar-step-badge">ГАРЦ 01</div><h3 class="pillar-title">Уян хатан сургалт, бодит дэмжлэг</h3><p class="pillar-desc">Улирлын ажилтай уялдсан сургалтын хуваарь, дотуур байрны хүртээмж, тэтгэлэг болон зөвлөгөө өгөх үйлчилгээ нь хөвгүүд сургуульдаа үргэлжлүүлэн суралцахад бодит дэмжлэг болно.</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 22" data-slide-index="22" id="slide-22">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">САНАЛ БОЛГОЖ БУЙ ГАРЦ 02</span>
-                <h2 class="slide-display-title stagger-2">Менторшипээр эмэгтэйчүүдийн карьерын өсөлтийг дэмжих нь</h2>
-                <p class="slide-display-subtitle stagger-3">Залуу эмэгтэйчүүд туршлагатай мэргэжилтнүүдээс суралцаж, ажлын орчин болон цаашдын хөгжлөө илүү сайн ойлгох боломжтой байх нь чухал.</p>
-                <div class="pillar-card stagger-4"><div class="pillar-step-badge">ГАРЦ 02</div><h3 class="pillar-title">Менторшип хөтөлбөр ба цалингийн ил тод байдал</h3><p class="pillar-desc">Менторшип хөтөлбөр, цалингийн ил тод мэдээлэл, тушаал дэвших тодорхой шалгуур нь хүн бүрт ойлгомжтой, шударга ажлын орчин бүрдүүлэхэд тусална.</p></div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 23" data-slide-index="23" id="slide-23">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col reverse">
-              <div class="editorial-left" style="min-height: 240px"></div>
-              <div class="editorial-right">
-                <span class="slide-kicker stagger-1">САНАЛ БОЛГОЖ БУЙ ГАРЦ 03</span>
-                <h2 class="slide-display-title stagger-2">Сурах бичиг дэх хэвшмэл ойлголтыг хэрхэн өөрчлөх вэ?</h2>
-                <p class="slide-display-subtitle stagger-3">Хүүхэд багаасаа “би хүссэн мэргэжлээ сонгож болно” гэсэн ойлголтыг авах нь чухал. Сурах бичгийн зураг, жишээ хүртэл хүүхдийн үзэл бодолд нөлөөлдөг.</p>
-                <div class="pillar-card stagger-4"><div class="pillar-step-badge">ГАРЦ 03</div><h3 class="pillar-title">Хэвшмэл ойлголтгүй сургалтын материал</h3><p class="pillar-desc">Сурах бичгийн зураг, бодлого, жишээнд эмэгтэй хүнийг зөвхөн гэрийн ажил, эрэгтэй хүнийг зөвхөн техникийн ажилтай холбон харуулахгүй байх нь хүүхдийн төсөөлөлд чухал нөлөөтэй.</p></div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 24" data-slide-index="24" id="slide-24">
-          <div class="slide-content-wrapper">
-            <div class="editorial-grid-2col">
-              <div class="editorial-left">
-                <span class="slide-kicker stagger-1">ДҮГНЭЛТ</span>
-                <h2 class="slide-display-title stagger-2">“Шувуу нэг далавчаараа нисдэггүй”</h2>
-                <p class="slide-display-subtitle stagger-3">Нийгэм хүн бүрийн мэдлэг, чадвар, оролцоог тэгш ашиглаж чадвал илүү шударга, тогтвортой хөгжих боломжтой.</p>
-                <div class="epilogue-quote-banner stagger-4">
-                  <p class="epilogue-quote-text">“Тэгш байдал” гэдэг нь бүгд яг адилхан байхыг хэлэхгүй. Харин хүн бүр өөрийн чадвар, хүсэл, хичээл зүтгэлээрээ урагшлах боломжоо хүйсийн ялгаанаас шалтгаалан алдахгүй байх тухай юм.</p>
-                  <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">Хүний хөгжил хичээл — Семинар 07 // ШУТИС-МХТС</div>
-                </div>
-              </div>
-              <div class="editorial-right" style="min-height: 240px"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="slide-section" style="--slide-index: 25" data-slide-index="25" id="slide-25">
-          <div class="slide-content-wrapper" style="text-align: center; align-items: center">
-            <span class="slide-kicker stagger-1">ЭХ СУРВАЛЖ БА БАЯРЛАЛАА</span>
-            <h2 class="slide-display-title stagger-2" style="font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 0.5rem">Ашигласан эх сурвалжууд</h2>
-            <p class="slide-display-subtitle stagger-3" style="max-width: 680px; margin: 0 auto 1.25rem auto">Тоон мэдээллүүдийг аль болох анхны эх сурвалжаас нь шалгаж, слайдад товчлон оруулсан.</p>
-            <div class="concept-cards-grid stagger-4" style="max-width: 980px; width: 100%; text-align: left">
-              <div class="editorial-card">
-                <span class="card-num-badge">UNESCO</span>
-                <h3 class="card-title">Охидын боловсрол</h3>
-                <p class="card-desc">Сургуульд хамрагдаагүй охид, бичиг үсгийн боловсрол, нэмэлт жил суралцахын өгөөжийн тухай мэдээлэл.<br /><a href="https://www.unesco.org/en/articles/progress-girls-access-education-what-new-unesco-data-reveals" target="_blank" rel="noopener noreferrer">UNESCO girls' education data</a></p>
-              </div>
-              <div class="editorial-card">
-                <span class="card-num-badge">ҮСХ / DATA.1212.MN</span>
-                <h3 class="card-title">Монголын боловсрол, хөдөлмөр</h3>
-                <p class="card-desc">Их, дээд сургуулийн суралцагчдын хүйсийн бүтэц, цалин, хөдөлмөрийн зах зээлийн статистик.<br /><a href="https://data.1212.mn/pxweb/en/NSO/NSO__Education%2C%20health__Universities%2C%20institutes%20and%20colleges/DT_NSO_2026_028V1.px/" target="_blank" rel="noopener noreferrer">ҮСХ: их, дээд сургуулийн суралцагчид</a></p>
-              </div>
-              <div class="editorial-card">
-                <span class="card-num-badge">WEF / IPU / IDEA</span>
-                <h3 class="card-title">STEM ба шийдвэр гаргах түвшин</h3>
-                <p class="card-desc">STEM салбар дахь эмэгтэйчүүдийн оролцоо, Монголын парламент дахь эмэгтэй гишүүдийн хувь.<br /><a href="https://www.weforum.org/publications/global-gender-gap-report-2024/in-full/economic-and-leadership-gaps-constraining-growth-and-skewing-transitions-7b05a512cb/" target="_blank" rel="noopener noreferrer">WEF Global Gender Gap 2024</a> · <a href="https://www.idea.int/democracytracker/report/mongolia/june-2024" target="_blank" rel="noopener noreferrer">International IDEA Mongolia 2024</a> · <a href="https://data.ipu.org/parliament/MN/MN-LC01/data-on-women/" target="_blank" rel="noopener noreferrer">IPU Parline Mongolia</a></p>
-              </div>
-            </div>
-            <p class="slide-lead-p stagger-5" style="margin-top: 1.25rem; font-size: 0.88rem; color: var(--ink-muted);">Анхаарал тавьсанд баярлалаа. Асуулт байвал хариулахад бэлэн байна.</p>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-bottom-dock-hud">
-      <div class="dock-left-meta">
-        <div class="slide-counter-wrapper">
-          <span id="slide-counter-current">01</span>
-          <span class="counter-divider">/</span>
-          <span id="slide-counter-total">26</span>
+          <h3 class="team-member-name">
+           Д. Цэнгэл
+          </h3>
+         </div>
         </div>
-        <div class="dock-active-title" id="active-slide-title">01. ЖЕНДЭРИЙН ТЭГШ БАЙДАЛ БА БОЛОВСРОЛ</div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
       </div>
-      <div class="dock-center-nav"></div>
-      <div class="dock-right-controls">
-        <button id="btn-nav-prev" class="nav-arrow-btn" title="Өмнөх слайд (←)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-        <button id="btn-nav-next" class="nav-arrow-btn" title="Дараагийн слайд (→)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="3" id="slide-3" style="--slide-index: 3">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         АГУУЛГА
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Өнөөдөр юуны тухай ярих вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Жендэрийн тэгш байдал боловсрол, нийгэм, технологийн салбарт хэрхэн илэрч байгааг авч үзнэ.
+        </p>
+        <div class="concept-cards-grid stagger-4">
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           01
+          </span>
+          <h3 class="card-title">
+           Үндсэн ойлголт
+          </h3>
+          <p class="card-desc">
+           Хүний хөгжил, хүйс ба жендэрийн ялгаа, НҮБ-ын Тогтвортой хөгжлийн зорилтууд.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           02
+          </span>
+          <h3 class="card-title">
+           Дэлхийн нөхцөл байдал
+          </h3>
+          <p class="card-desc">
+           Охидын боловсролын ач холбогдол болон хөгжингүй орнуудад гарч буй шинэ сорилтууд.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           03
+          </span>
+          <h3 class="card-title">
+           Монголын нөхцөл байдал
+          </h3>
+          <p class="card-desc">
+           Дээд боловсрол, хөдөөгийн хөвгүүдийн асуудал, удирдах түвшин болон цалингийн зөрүү.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           04
+          </span>
+          <h3 class="card-title">
+           Технологийн салбар
+          </h3>
+          <p class="card-desc">
+           Компьютерийн шинжлэх ухаан, хиймэл оюун ухаан, манай сургууль болон Ада Лавлейсийн жишээ.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           05
+          </span>
+          <h3 class="card-title">
+           Хэвшмэл ойлголтууд
+          </h3>
+          <p class="card-desc">
+           Жендэртэй холбоотой түгээмэл гурван хэвшмэл ойлголт ба бодит байдал.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           06
+          </span>
+          <h3 class="card-title">
+           Гарц ба дүгнэлт
+          </h3>
+          <p class="card-desc">
+           Асуудлыг шийдвэрлэх боломжит гурван гарц болон гол дүгнэлт.
+          </p>
+         </div>
+        </div>
+       </div>
       </div>
-    </footer>
-
-    <aside id="presenter-notes-drawer">
-      <div class="notes-header">
-        <h3>Илтгэгчийн тэмдэглэл</h3>
-        <button id="btn-close-notes" class="btn-close-drawer" title="Хаах (ESC)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="4" id="slide-4" style="--slide-index: 4">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         ОНОЛЫН ҮНДЭС
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Хүний хөгжил гэж юу вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Улсын орлого өсөх нь чухал. Гэхдээ хүмүүс сурч боловсрох, эрүүл амьдрах, өөрийн сонголтоо хийх боломжгүй бол зөвхөн эдийн засгийн өсөлт хангалтгүй.
+        </p>
+        <div class="editorial-grid-2col equal stagger-4" style="gap: 1.25rem">
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           ӨМНӨХ ҮЗЭЛ
+          </span>
+          <h3 class="card-title">
+           Орлого, үйлдвэрлэлээр хэмжих
+          </h3>
+          <p class="card-desc">
+           Хөгжлийг ДНБ, үйлдвэрлэл, орлогын өсөлтөөр голчлон хэмждэг хандлага удаан хугацаанд давамгайлж ирсэн.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           ӨНӨӨГИЙН ҮЗЭЛ
+          </span>
+          <h3 class="card-title">
+           Хүний сонголт, боломж
+          </h3>
+          <p class="card-desc">
+           Амартиа Сений “чадамжийн” үзлээр хөгжил гэдэг нь хүн өөрийн хүссэн амьдралаа сонгох бодит боломжтой байхыг хэлнэ.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
       </div>
-      <div class="notes-timer-section">
-        <div class="timer-box"><span class="timer-label">Илтгэлийн хугацаа</span><span id="notes-timer-display">00:00</span></div>
-        <div class="timer-actions"><button id="btn-timer-toggle" class="btn-timer-action">Зогсоох</button><button id="btn-timer-reset" class="btn-timer-action">Шинэчлэх</button></div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="5" id="slide-5" style="--slide-index: 5">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ҮНДСЭН ОЙЛГОЛТ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Хүйс ба жендэр хоёр өөр ойлголт
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Хүйс нь хүний биологийн онцлогтой холбоотой. Харин жендэр нь нийгэм, соёлын орчноос шалтгаалан “эрэгтэй, эмэгтэй хүн ийм байх ёстой” гэж бий болдог хүлээлт, үүрэгтэй холбоотой.
+        </p>
+        <div class="editorial-grid-2col equal stagger-4" style="gap: 1.25rem">
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           БИОЛОГИ
+          </span>
+          <h3 class="card-title">
+           Хүйс (Sex)
+          </h3>
+          <p class="card-desc">
+           Бие махбодын бүтэц, нөхөн үржихүйн онцлог зэрэг биологийн шинж чанарыг хэлнэ.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           НИЙГЭМ
+          </span>
+          <h3 class="card-title">
+           Жендэр (Gender)
+          </h3>
+          <p class="card-desc">
+           Нийгэм, соёлын орчинд бий болсон үүрэг, хүлээлт, хандлагыг хэлнэ. Энэ нь цаг хугацаа, орчноос шалтгаалан өөрчлөгдөж болно.
+          </p>
+         </div>
+        </div>
+       </div>
       </div>
-      <div class="notes-scroll-body" id="notes-body-text"></div>
-      <div class="notes-footer-preview" id="notes-next-slide-title">Дараагийн слайд: 02. Яагаад энэ сэдэв чухал вэ?</div>
-    </aside>
-
-    <script src="js/three.min.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/scene3d.js"></script>
-    <script src="js/presentation.js"></script>
-  </body>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="6" id="slide-6" style="--slide-index: 6">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         НҮБ-ЫН ТОГТВОРТОЙ ХӨГЖЛИЙН ЗОРИЛТ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Боловсрол ба жендэрийн тэгш байдал: ТХЗ-4, ТХЗ-5
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Чанартай боловсрол эзэмших боломжгүй бол хүн эрхээ мэдэх, мэргэжлээ сонгох, нийгэмдээ идэвхтэй оролцох боломжоо бүрэн ашиглаж чаддаггүй. Тиймээс ТХЗ-4 болон ТХЗ-5 нь хоорондоо нягт холбоотой.
+        </p>
+        <div class="editorial-grid-2col equal stagger-4" style="gap: 1.25rem">
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           ТХЗ 04
+          </span>
+          <h3 class="card-title">
+           Чанартай боловсрол
+          </h3>
+          <p class="card-desc">
+           Хүн бүр чанартай боловсрол эзэмшиж, насан туршдаа суралцах тэгш боломжтой байх.
+          </p>
+         </div>
+         <div class="editorial-card">
+          <span class="card-num-badge">
+           ТХЗ 05
+          </span>
+          <h3 class="card-title">
+           Жендэрийн тэгш байдал
+          </h3>
+          <p class="card-desc">
+           Охид, эмэгтэйчүүдийн эрх, боломжийг нэмэгдүүлж, жендэрт суурилсан ялгаварлан гадуурхалтыг бууруулах.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="7" id="slide-7" style="--slide-index: 7">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ДЭЛХИЙН БАЙДАЛ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Дэлхий дээр 122 сая орчим охин сургуульд хамрагдаж чадахгүй байна
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         UNESCO-гийн 2023 оны мэдээллээр дэлхий даяар сургуульд хамрагдаж чадахгүй байгаа охидын тоо өндөр хэвээр байна. Үүнд ядуурал, мөргөлдөөн, хүүхдийн гэрлэлт, алслагдсан байршил зэрэг хүчин зүйлс нөлөөлдөг.
+        </p>
+        <div class="metrics-dashboard-grid stagger-4">
+         <div class="metric-data-card">
+          <div class="metric-big-val">
+           122M
+          </div>
+          <div class="metric-title">
+           Сургуульд хамрагдаагүй охид
+          </div>
+          <div class="metric-sub">
+           Ядуурал, мөргөлдөөн, хүүхдийн гэрлэлт ихтэй бүс нутагт энэ асуудал илүү түгээмэл байна.
+          </div>
+         </div>
+         <div class="metric-data-card">
+          <div class="metric-big-val">
+           ≈ 2/3
+          </div>
+          <div class="metric-title">
+           Бичиг үсэг мэдэхгүй насанд хүрэгчдийн дундах эмэгтэйчүүдийн эзлэх хувь
+          </div>
+          <div class="metric-sub">
+           UNESCO-гийн мэдээллээр бичиг үсэг мэдэхгүй насанд хүрэгчдийн ойролцоогоор 63 хувь нь эмэгтэйчүүд байна.
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="8" id="slide-8" style="--slide-index: 8">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         НИЙГЭМ, ЭДИЙН ЗАСГИЙН ҮР ӨГӨӨЖ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Охидын боловсролд хийсэн хөрөнгө оруулалт ямар үр өгөөжтэй вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Охидын боловсрол нь зөвхөн тухайн хүний ирээдүйд бус, гэр бүл, хүүхэд болон нийгмийн хөгжилд ч эерэг нөлөө үзүүлдэг.
+        </p>
+        <div class="metrics-dashboard-grid stagger-4">
+         <div class="metric-data-card">
+          <div class="metric-big-val">
+           илүү
+          </div>
+          <div class="metric-title">
+           Хүүхдийн эрүүл өсөх боломж
+          </div>
+          <div class="metric-sub">
+           Эхийн боловсрол нэмэгдэхийн хэрээр хүүхдийн эрүүл мэнд, асаргаа болон сургуульд хамрагдах боломж сайжирдаг гэж олон улсын судалгаанд дурддаг.
+          </div>
+         </div>
+         <div class="metric-data-card">
+          <div class="metric-big-val">
+           +20%
+          </div>
+          <div class="metric-title">
+           Ирээдүйн орлого
+          </div>
+          <div class="metric-sub">
+           UNESCO-гийн мэдээллээр нэг жил нэмэлт боловсрол эзэмших нь охидын ирээдүйн орлогыг 20 хүртэл хувиар нэмэгдүүлэх боломжтой.
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="9" id="slide-9" style="--slide-index: 9">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ШИНЭ СОРИЛТ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Зарим хөгжингүй оронд нөхцөл байдал өөрөөр харагдаж байна
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Олон оронд охидын боловсролын хүртээмж сайжирсан ч зарим хөгжингүй оронд хөвгүүдийн дээд боловсролд хамрагдах түвшин харьцангуй буурч байгаа нь шинэ сорилт болж байна.
+        </p>
+        <div class="editorial-card stagger-4" style="margin-bottom: 1rem">
+         <h3 class="card-title">
+          OECD орнуудын жишээ
+         </h3>
+         <p class="card-desc">
+          OECD-ийн орнуудад боловсролын тэгш байдлыг зөвхөн нэг талаас нь авч үзэх боломжгүй болсон. Охидын боломжийг дэмжихийн зэрэгцээ хөвгүүдийн боловсролын оролцоог нэмэгдүүлэх нөхцөлийг ч хамтад нь бүрдүүлэх нь чухал.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="10" id="slide-10" style="--slide-index: 10">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         МОНГОЛ УЛСЫН БАЙДАЛ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Манай улсад дээд сургуульд эмэгтэйчүүд илүү олон суралцдаг
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         ҮСХ-ны боловсролын статистикаас харахад их, дээд сургуульд суралцагчдын дунд эмэгтэйчүүдийн эзлэх хувь өндөр байна. Энэ нь манай орны боловсролын салбарын нэг онцлог дүр зураг юм.
+        </p>
+        <div class="comparison-item stagger-4">
+         <div class="comp-category">
+          Монголын их дээд сургуулиуд
+          <small>
+           Бакалавр, магистрын оюутнууд
+          </small>
+         </div>
+         <div class="comp-metric-tag female">
+          <span class="label">
+           Эмэгтэй
+          </span>
+          <span class="val">
+           62.4%
+          </span>
+         </div>
+         <div class="comp-metric-tag">
+          <span class="label">
+           Эрэгтэй
+          </span>
+          <span class="val">
+           37.6%
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="11" id="slide-11" style="--slide-index: 11">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ХӨДӨӨГИЙН БОДИТ БАЙДАЛ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Хөдөөгийн хөвгүүд яагаад сургуулиа орхидог вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Гол шалтгаануудын нэг нь хөвгүүд гэр бүлийн ажилд эрт оролцож, мал маллах эсвэл орлого олоход туслах ёстой гэсэн хүлээлттэй холбоотой.
+        </p>
+        <div class="comparison-item stagger-4">
+         <div class="comp-category">
+          Сургуулиа орхисон хүүхдүүдийн хүйсийн харьцаа
+          <small>
+           Мал маллах, гэр бүлийн ажилд оролцох зэрэг шалтгаанаар
+          </small>
+         </div>
+         <div class="comp-metric-tag">
+          <span class="label">
+           Охид
+          </span>
+          <span class="val">
+           31.0%
+          </span>
+         </div>
+         <div class="comp-metric-tag female">
+          <span class="label">
+           Хөвгүүд
+          </span>
+          <span class="val">
+           69.0%
+          </span>
+         </div>
+        </div>
+        <p class="slide-lead-p stagger-5" style="margin-top: 0.8rem">
+         “Хүү хүн ажил хийж сурсан нь дээр” гэсэн ойлголт заримдаа зөвлөгөө мэт сонсогддог. Гэхдээ энэ нь сургуулиа орхих хэмжээнд хүрвэл хүүхдийн ирээдүйн сонголтыг хязгаарлаж болно.
+        </p>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="12" id="slide-12" style="--slide-index: 12">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         ШИЛЭН ТААЗ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Сургуульд тэргүүлдэг ч удирдах түвшинд цөөн байдаг
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Дээд боловсролд эмэгтэйчүүдийн оролцоо өндөр байдаг ч улс төр, байгууллагын удирдлага зэрэг шийдвэр гаргах түвшинд эрэгтэйчүүдийн эзлэх хувь өндөр хэвээр байна.
+        </p>
+        <div class="comparison-item stagger-4">
+         <div class="comp-category">
+          Улсын Их Хурал дахь төлөөлөл
+          <small>
+           2024 оны сонгуулийн дараах бүтэц
+          </small>
+         </div>
+         <div class="comp-metric-tag female">
+          <span class="label">
+           Эмэгтэй
+          </span>
+          <span class="val">
+           25.4%
+          </span>
+         </div>
+         <div class="comp-metric-tag">
+          <span class="label">
+           Эрэгтэй
+          </span>
+          <span class="val">
+           74.6%
+          </span>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="13" id="slide-13" style="--slide-index: 13">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ЦАЛИНГИЙН ЗӨРҮҮ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Ижил боловсролтой ч цалин ижил байдаггүй
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Боловсрол өндөр байсан ч хөдөлмөрийн зах зээл дээр ажил, салбар, албан тушаалын ялгаа цалинд нөлөөлсөөр байна.
+        </p>
+        <div class="comparison-item stagger-4">
+         <div class="comp-category">
+          Дундаж цалингийн зөрүү
+          <small>
+           ҮСХ болон хөдөлмөрийн зах зээлийн тайлангууд
+          </small>
+         </div>
+         <div class="comp-metric-tag female">
+          <span class="label">
+           Эмэгтэй
+          </span>
+          <span class="val">
+           -18.5%
+          </span>
+         </div>
+         <div class="comp-metric-tag">
+          <span class="label">
+           Эрэгтэй
+          </span>
+          <span class="val">
+           Суурь 100%
+          </span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="14" id="slide-14" style="--slide-index: 14">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         МАНАЙ САЛБАР
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Программчлалын салбарт яагаад эмэгтэйчүүд цөөн байдаг вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Программ хангамж, өгөгдөл, хиймэл оюун ухаан нь хүний амьдралд улам их нөлөөлж байна. Иймээс технологийг бүтээж буй баг олон янзын туршлага, үзэл бодолтой байх нь чухал.
+        </p>
+        <div class="tech-aspect-card stagger-4">
+         <div class="tech-stat-badge">
+          28.2%
+         </div>
+         <div class="tech-aspect-info">
+          <h3 class="card-title">
+           STEM салбар дахь эмэгтэйчүүд
+          </h3>
+          <p class="card-desc">
+           WEF-ийн 2024 оны тайланд STEM ажлын хүчний 28.2 хувийг эмэгтэйчүүд эзэлж байна гэж дурдсан. Энэ нь технологийн салбар дахь оролцоо одоогоор тэнцвэртэй биш байгааг харуулж байна.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="15" id="slide-15" style="--slide-index: 15">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ТЕХНОЛОГИ БА ЖЕНДЭР
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Хиймэл оюун ухаанд ч хазайлт үүсч болно
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Хиймэл оюун ухаан өөрөө автоматаар шударга шийдвэр гаргадаггүй. Хэрэв сурсан өгөгдөл нь нэг талыг илүү их төлөөлсөн бол гаргах үр дүн нь мөн хазайлттай байх эрсдэлтэй.
+        </p>
+        <div class="tech-aspect-card stagger-4">
+         <div class="tech-stat-badge">
+          BIAS
+         </div>
+         <div class="tech-aspect-info">
+          <h3 class="card-title">
+           Алгоритмын хазайлт
+          </h3>
+          <p class="card-desc">
+           Ажилд авах, зээл олгох, үнэлгээ хийх зэрэг үйл явцад алгоритм ашиглах нь нэмэгдэж байна. Тиймээс өгөгдөл, загвар болон гарсан үр дүн нь хүйс болон бусад бүлгийн хувьд шударга эсэхийг тогтмол шалгах шаардлагатай.
+          </p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="16" id="slide-16" style="--slide-index: 16">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         ШУТИС-МХТС
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Манай сургууль дахь охидын оролцоо
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Манай сургуульд охид программ хангамж, өгөгдөл, кибер аюулгүй байдал зэрэг чиглэлээр суралцаж байна. Тоо нь харьцангуй цөөн байсан ч оролцоо нь бодитой нэмэгдэж байна.
+        </p>
+        <div class="editorial-card stagger-4">
+         <h3 class="card-title">
+          МХТС-ийн суралцагчид
+         </h3>
+         <p class="card-desc">
+          Охидын оролцоо нэмэгдэх нь зөвхөн тоо өсөж байна гэсэн үг биш. Багийн ажил, асуудал шийдэх арга барил, хэрэглэгчийг ойлгох өнцгийг илүү өргөн болгоход чухал нөлөөтэй.
+         </p>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="17" id="slide-17" style="--slide-index: 17">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ТҮҮХЭН ЖИШЭЭ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Анхны компьютерийн алгоритмыг эмэгтэй хүн бичсэн
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Ада Лавлейс 1843 онд Чарльз Бэббижийн “Аналитик машин”-д зориулсан тэмдэглэлдээ тооцооллын дараалал бичсэн. Үүнийг программчлалын түүхэн дэх анхны алгоритмуудын нэг гэж үздэг.
+        </p>
+        <div class="editorial-card stagger-4">
+         <h3 class="card-title">
+          Тооцооллоос илүү зүйл
+         </h3>
+         <p class="card-desc">
+          Тэр уг машин зөвхөн тоо бодохоос гадна тэмдэгт болон бусад төрлийн мэдээлэл боловсруулах боломжтой гэж төсөөлж байсан. Энэ нь технологийн хөгжилд эмэгтэйчүүд эхнээсээ чухал хувь нэмэр оруулж ирснийг харуулдаг.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="18" id="slide-18" style="--slide-index: 18">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         ХЭВШМЭЛ ОЙЛГОЛТ № 1
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         “Хөвгүүд математикт, охид хэлний хичээлд илүү сайн байдаг уу?”
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Хүүхдийн чадварыг зөвхөн хүйсээр нь тодорхойлох боломжгүй. Сонирхол, дадлага, багшийн дэмжлэг болон гэр бүлийн хандлага нь илүү их нөлөөлдөг.
+        </p>
+        <div class="myth-card stagger-4">
+         <div class="myth-header">
+          <span>
+           Хүйсээс шалтгаалаад математик, логик сэтгэлгээний чадвар өөр байдаг уу?
+          </span>
+          <span class="myth-badge">
+           ТАШАА
+          </span>
+         </div>
+         <div class="myth-fact-content">
+          <span class="fact-badge">
+           БОДИТ БАЙДАЛ
+          </span>
+          <p style="margin-top: 0.35rem">
+           Нэг хүүхэд математикт, нөгөө нь хэл, урлаг эсвэл спортод илүү сонирхолтой байж болно. Гол нь хүүхдийн сонголтыг хүйсээр нь урьдчилан хязгаарлахгүй байх хэрэгтэй.
+          </p>
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="19" id="slide-19" style="--slide-index: 19">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         ХЭВШМЭЛ ОЙЛГОЛТ № 2
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         “Эр хүн уйлдаггүй” гэдэг ойлголт зөв үү?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Сэтгэл хөдлөлөө илэрхийлэхийг сул дорой байдал гэж ойлговол хөвгүүд асуудлаа дотроо хадгалж, тусламж хүсэхээс санаа зовох тохиолдол гарч болно.
+        </p>
+        <div class="editorial-card stagger-4">
+         <h3 class="card-title">
+          Дотроо дарсан сэтгэл
+         </h3>
+         <p class="card-desc">
+          Хүн бүр баярлах, гомдох, айх, тусламж хүсэх үе байдаг. Үүнийг “эр хүн”, “эм хүн” гэж ялгах нь харилцаа болон өөрийгөө ойлгох чадварт сөргөөр нөлөөлж болно.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="20" id="slide-20" style="--slide-index: 20">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         ХЭВШМЭЛ ОЙЛГОЛТ № 3
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Жендэрийн тэгш байдал гэдэг нь эрэгтэйчүүдийн боломжийг хязгаарлах тухай биш
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Тэгш байдал гэдэг нь нэг талын эрх, боломжийг нөгөө талд шилжүүлэх гэсэн үг биш. Харин хүн бүр хүйсээсээ үл хамааран тэгш боломжтой байх тухай ойлголт юм.
+        </p>
+        <div class="editorial-card stagger-4">
+         <h3 class="card-title">
+          Хүн бүрийн сонголтыг хүндлэх
+         </h3>
+         <p class="card-desc">
+          Эрэгтэй, эмэгтэй хэн ч өөрийн сонирхол, чадварт тохирсон мэргэжлээ сонгож, суралцаж, нийгэмдээ хувь нэмрээ оруулах эрхтэй.
+         </p>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="21" id="slide-21" style="--slide-index: 21">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         САНАЛ БОЛГОЖ БУЙ ГАРЦ 01
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Хөдөөгийн хөвгүүдийн боловсролыг хэрхэн дэмжих вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Малчин өрхийн хүүхдүүд гэр бүлийн ажилд оролцдог бодит нөхцөлийг харгалзан, сургуулиа таслахгүй үргэлжлүүлэн суралцах боломжийг бүрдүүлэх хэрэгтэй.
+        </p>
+        <div class="pillar-card stagger-4">
+         <div class="pillar-step-badge">
+          ГАРЦ 01
+         </div>
+         <h3 class="pillar-title">
+          Уян хатан сургалт, бодит дэмжлэг
+         </h3>
+         <p class="pillar-desc">
+          Улирлын ажилтай уялдсан сургалтын хуваарь, дотуур байрны хүртээмж, тэтгэлэг болон зөвлөгөө өгөх үйлчилгээ нь хөвгүүд сургуульдаа үргэлжлүүлэн суралцахад бодит дэмжлэг болно.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="22" id="slide-22" style="--slide-index: 22">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         САНАЛ БОЛГОЖ БУЙ ГАРЦ 02
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Менторшипээр эмэгтэйчүүдийн карьерын өсөлтийг дэмжих нь
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Залуу эмэгтэйчүүд туршлагатай мэргэжилтнүүдээс суралцаж, ажлын орчин болон цаашдын хөгжлөө илүү сайн ойлгох боломжтой байх нь чухал.
+        </p>
+        <div class="pillar-card stagger-4">
+         <div class="pillar-step-badge">
+          ГАРЦ 02
+         </div>
+         <h3 class="pillar-title">
+          Менторшип хөтөлбөр ба цалингийн ил тод байдал
+         </h3>
+         <p class="pillar-desc">
+          Менторшип хөтөлбөр, цалингийн ил тод мэдээлэл, тушаал дэвших тодорхой шалгуур нь хүн бүрт ойлгомжтой, шударга ажлын орчин бүрдүүлэхэд тусална.
+         </p>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="23" id="slide-23" style="--slide-index: 23">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col reverse">
+       <div class="editorial-left" style="min-height: 240px">
+       </div>
+       <div class="editorial-right">
+        <span class="slide-kicker stagger-1">
+         САНАЛ БОЛГОЖ БУЙ ГАРЦ 03
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         Сурах бичиг дэх хэвшмэл ойлголтыг хэрхэн өөрчлөх вэ?
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Хүүхэд багаасаа “би хүссэн мэргэжлээ сонгож болно” гэсэн ойлголтыг авах нь чухал. Сурах бичгийн зураг, жишээ хүртэл хүүхдийн үзэл бодолд нөлөөлдөг.
+        </p>
+        <div class="pillar-card stagger-4">
+         <div class="pillar-step-badge">
+          ГАРЦ 03
+         </div>
+         <h3 class="pillar-title">
+          Хэвшмэл ойлголтгүй сургалтын материал
+         </h3>
+         <p class="pillar-desc">
+          Сурах бичгийн зураг, бодлого, жишээнд эмэгтэй хүнийг зөвхөн гэрийн ажил, эрэгтэй хүнийг зөвхөн техникийн ажилтай холбон харуулахгүй байх нь хүүхдийн төсөөлөлд чухал нөлөөтэй.
+         </p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="24" id="slide-24" style="--slide-index: 24">
+     <div class="slide-content-wrapper">
+      <div class="editorial-grid-2col">
+       <div class="editorial-left">
+        <span class="slide-kicker stagger-1">
+         ДҮГНЭЛТ
+        </span>
+        <h2 class="slide-display-title stagger-2">
+         “Шувуу нэг далавчаараа нисдэггүй”
+        </h2>
+        <p class="slide-display-subtitle stagger-3">
+         Нийгэм хүн бүрийн мэдлэг, чадвар, оролцоог тэгш ашиглаж чадвал илүү шударга, тогтвортой хөгжих боломжтой.
+        </p>
+        <div class="epilogue-quote-banner stagger-4">
+         <p class="epilogue-quote-text">
+          “Тэгш байдал” гэдэг нь бүгд яг адилхан байхыг хэлэхгүй. Харин хүн бүр өөрийн чадвар, хүсэл, хичээл зүтгэлээрээ урагшлах боломжоо хүйсийн ялгаанаас шалтгаалан алдахгүй байх тухай юм.
+         </p>
+         <div style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--ink-muted);">
+          Хүний хөгжил хичээл — Семинар 07 // ШУТИС-МХТС
+         </div>
+        </div>
+       </div>
+       <div class="editorial-right" style="min-height: 240px">
+       </div>
+      </div>
+     </div>
+    </section>
+    <section class="slide-section" data-slide-index="25" id="slide-25" style="--slide-index: 25">
+     <div class="slide-content-wrapper" style="text-align: center; align-items: center">
+      <span class="slide-kicker stagger-1">
+       ЭХ СУРВАЛЖ БА БАЯРЛАЛАА
+      </span>
+      <h2 class="slide-display-title stagger-2" style="font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 0.5rem">
+       Ашигласан эх сурвалжууд
+      </h2>
+      <p class="slide-display-subtitle stagger-3" style="max-width: 680px; margin: 0 auto 1.25rem auto">
+       Тоон мэдээллүүдийг аль болох анхны эх сурвалжаас нь шалгаж, слайдад товчлон оруулсан.
+      </p>
+      <div class="concept-cards-grid stagger-4" style="max-width: 980px; width: 100%; text-align: left">
+       <div class="editorial-card">
+        <span class="card-num-badge">
+         UNESCO
+        </span>
+        <h3 class="card-title">
+         Охидын боловсрол
+        </h3>
+        <p class="card-desc">
+         Сургуульд хамрагдаагүй охид, бичиг үсгийн боловсрол, нэмэлт жил суралцахын өгөөжийн тухай мэдээлэл.
+         <br/>
+         <a href="https://www.unesco.org/en/articles/progress-girls-access-education-what-new-unesco-data-reveals" rel="noopener noreferrer" target="_blank">
+          UNESCO girls' education data
+         </a>
+        </p>
+       </div>
+       <div class="editorial-card">
+        <span class="card-num-badge">
+         ҮСХ / DATA.1212.MN
+        </span>
+        <h3 class="card-title">
+         Монголын боловсрол, хөдөлмөр
+        </h3>
+        <p class="card-desc">
+         Их, дээд сургуулийн суралцагчдын хүйсийн бүтэц, цалин, хөдөлмөрийн зах зээлийн статистик.
+         <br/>
+         <a href="https://data.1212.mn/pxweb/en/NSO/NSO__Education%2C%20health__Universities%2C%20institutes%20and%20colleges/DT_NSO_2026_028V1.px/" rel="noopener noreferrer" target="_blank">
+          ҮСХ: их, дээд сургуулийн суралцагчид
+         </a>
+        </p>
+       </div>
+       <div class="editorial-card">
+        <span class="card-num-badge">
+         WEF / IPU / IDEA
+        </span>
+        <h3 class="card-title">
+         STEM ба шийдвэр гаргах түвшин
+        </h3>
+        <p class="card-desc">
+         STEM салбар дахь эмэгтэйчүүдийн оролцоо, Монголын парламент дахь эмэгтэй гишүүдийн хувь.
+         <br/>
+         <a href="https://www.weforum.org/publications/global-gender-gap-report-2024/in-full/economic-and-leadership-gaps-constraining-growth-and-skewing-transitions-7b05a512cb/" rel="noopener noreferrer" target="_blank">
+          WEF Global Gender Gap 2024
+         </a>
+         ·
+         <a href="https://www.idea.int/democracytracker/report/mongolia/june-2024" rel="noopener noreferrer" target="_blank">
+          International IDEA Mongolia 2024
+         </a>
+         ·
+         <a href="https://data.ipu.org/parliament/MN/MN-LC01/data-on-women/" rel="noopener noreferrer" target="_blank">
+          IPU Parline Mongolia
+         </a>
+        </p>
+       </div>
+      </div>
+      <p class="slide-lead-p stagger-5" style="margin-top: 1.25rem; font-size: 0.88rem; color: var(--ink-muted);">
+       Анхаарал тавьсанд баярлалаа. Асуулт байвал хариулахад бэлэн байна.
+      </p>
+     </div>
+    </section>
+   </div>
+  </main>
+  <footer class="site-bottom-dock-hud">
+   <div class="dock-left-meta">
+    <div class="slide-counter-wrapper">
+     <span id="slide-counter-current">
+      01
+     </span>
+     <span class="counter-divider">
+      /
+     </span>
+     <span id="slide-counter-total">
+      26
+     </span>
+    </div>
+    <div class="dock-active-title" id="active-slide-title">
+     01. ЖЕНДЭРИЙН ТЭГШ БАЙДАЛ БА БОЛОВСРОЛ
+    </div>
+   </div>
+   <div class="dock-center-nav">
+   </div>
+   <div class="dock-right-controls">
+    <button class="nav-arrow-btn" id="btn-nav-prev" title="Өмнөх слайд (←)">
+     <svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18">
+      <polyline points="15 18 9 12 15 6">
+      </polyline>
+     </svg>
+    </button>
+    <button class="nav-arrow-btn" id="btn-nav-next" title="Дараагийн слайд (→)">
+     <svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18">
+      <polyline points="9 18 15 12 9 6">
+      </polyline>
+     </svg>
+    </button>
+   </div>
+  </footer>
+  <aside id="presenter-notes-drawer">
+   <div class="notes-header">
+    <h3>
+     Илтгэгчийн тэмдэглэл
+    </h3>
+    <button class="btn-close-drawer" id="btn-close-notes" title="Хаах (ESC)">
+     <svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18">
+      <line x1="18" x2="6" y1="6" y2="18">
+      </line>
+      <line x1="6" x2="18" y1="6" y2="18">
+      </line>
+     </svg>
+    </button>
+   </div>
+   <div class="notes-timer-section">
+    <div class="timer-box">
+     <span class="timer-label">
+      Илтгэлийн хугацаа
+     </span>
+     <span id="notes-timer-display">
+      00:00
+     </span>
+    </div>
+    <div class="timer-actions">
+     <button class="btn-timer-action" id="btn-timer-toggle">
+      Зогсоох
+     </button>
+     <button class="btn-timer-action" id="btn-timer-reset">
+      Шинэчлэх
+     </button>
+    </div>
+   </div>
+   <div class="notes-scroll-body" id="notes-body-text">
+   </div>
+   <div class="notes-footer-preview" id="notes-next-slide-title">
+    Дараагийн слайд: 02. Яагаад энэ сэдэв чухал вэ?
+   </div>
+  </aside>
+  <script src="js/three.min.js">
+  </script>
+  <script src="js/data.js">
+  </script>
+  <script src="js/scene3d.js">
+  </script>
+  <script src="js/presentation.js">
+  </script>
+ </body>
 </html>
